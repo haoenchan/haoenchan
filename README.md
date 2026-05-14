@@ -1,1 +1,5 @@
-Hi, i love physics and i occasionally do some math lol
+# Haoenchan
+
+Personal blog on math and physics.
+
+Built with Next.js, Tailwind CSS, KaTeX, and shadcn/ui.
