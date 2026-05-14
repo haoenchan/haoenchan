@@ -2,24 +2,10 @@
 
 import { useEffect, useState } from 'react'
 
-const PIXEL_SIZE = 8
-
-// Colors chosen to be clearly visible on the dark (#0f172a) background
-const colorMap: Record<number, string> = {
-  0: 'transparent',
-  1: '#e2e8f0',  // hair (cool white-gray)
-  2: '#fcd9b6',  // skin
-  3: '#64748b',  // jacket (slate-500, visible on dark bg)
-  4: '#f1f5f9',  // shirt white
-  5: '#334155',  // pants
-  6: '#94a3b8',  // shoes (light enough to see)
-  7: '#ef4444',  // tie red
-  8: '#0f172a',  // eyes dark
-}
-
-// 16 wide x 24 tall — 4 running frames
-const frames: number[][][] = [
-  // Frame 1 — right leg forward
+// Each frame is a 16x24 pixel grid representing Einstein running
+// 0 = transparent, 1 = hair (white/gray), 2 = skin, 3 = coat (dark), 4 = shirt (white), 5 = pants, 6 = shoes, 7 = tie (red)
+const frames = [
+  // Frame 1 - Right leg forward
   [
     [0,0,0,0,1,1,1,1,1,1,1,1,0,0,0,0],
     [0,0,0,1,1,1,1,1,1,1,1,1,1,0,0,0],
@@ -46,7 +32,7 @@ const frames: number[][][] = [
     [0,0,6,6,6,0,0,0,0,0,0,6,6,6,0,0],
     [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
   ],
-  // Frame 2 — legs together (up)
+  // Frame 2 - Legs together
   [
     [0,0,0,0,1,1,1,1,1,1,1,1,0,0,0,0],
     [0,0,0,1,1,1,1,1,1,1,1,1,1,0,0,0],
@@ -69,11 +55,11 @@ const frames: number[][][] = [
     [0,0,0,0,0,0,5,5,5,5,0,0,0,0,0,0],
     [0,0,0,0,0,0,5,5,5,5,0,0,0,0,0,0],
     [0,0,0,0,0,0,5,5,5,5,0,0,0,0,0,0],
+    [0,0,0,0,0,0,6,6,6,6,0,0,0,0,0,0],
     [0,0,0,0,0,6,6,6,6,6,6,0,0,0,0,0],
-    [0,0,0,0,6,6,6,6,6,6,6,6,0,0,0,0],
     [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
   ],
-  // Frame 3 — left leg forward
+  // Frame 3 - Left leg forward
   [
     [0,0,0,0,1,1,1,1,1,1,1,1,0,0,0,0],
     [0,0,0,1,1,1,1,1,1,1,1,1,1,0,0,0],
@@ -100,7 +86,7 @@ const frames: number[][][] = [
     [6,6,6,0,0,0,0,0,0,0,0,0,6,6,6,0],
     [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
   ],
-  // Frame 4 — legs together (down bounce)
+  // Frame 4 - Legs together (same as frame 2)
   [
     [0,0,0,0,1,1,1,1,1,1,1,1,0,0,0,0],
     [0,0,0,1,1,1,1,1,1,1,1,1,1,0,0,0],
@@ -120,22 +106,36 @@ const frames: number[][][] = [
     [0,0,0,2,3,3,3,3,3,3,3,3,2,0,0,0],
     [0,0,0,0,3,3,3,3,3,3,3,3,0,0,0,0],
     [0,0,0,0,0,0,5,5,5,5,0,0,0,0,0,0],
-    [0,0,0,0,0,5,5,5,5,5,5,0,0,0,0,0],
-    [0,0,0,0,0,5,5,5,5,5,5,0,0,0,0,0],
-    [0,0,0,0,0,5,5,0,0,5,5,0,0,0,0,0],
-    [0,0,0,0,6,6,6,0,0,6,6,6,0,0,0,0],
-    [0,0,0,6,6,6,6,0,0,6,6,6,6,0,0,0],
+    [0,0,0,0,0,0,5,5,5,5,0,0,0,0,0,0],
+    [0,0,0,0,0,0,5,5,5,5,0,0,0,0,0,0],
+    [0,0,0,0,0,0,5,5,5,5,0,0,0,0,0,0],
+    [0,0,0,0,0,0,6,6,6,6,0,0,0,0,0,0],
+    [0,0,0,0,0,6,6,6,6,6,6,0,0,0,0,0],
     [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
   ],
 ]
 
+const colorMap: Record<number, string> = {
+  0: 'transparent',
+  1: '#e2e8f0', // Hair - white/gray
+  2: '#fcd9b6', // Skin tone
+  3: '#64748b', // Coat - slate-500, visible on dark bg
+  4: '#f1f5f9', // Shirt - off-white
+  5: '#334155', // Pants - slate-700
+  6: '#94a3b8', // Shoes - slate-400, visible on dark bg
+  7: '#ef4444', // Tie - red
+  8: '#0f172a', // Eyes - near-black
+}
+
+const PIXEL_SIZE = 8
+
 const EQUATIONS = [
-  { text: 'E = mc²', left: '8%',  top: '20%' },
-  { text: 'F = ma',  left: '78%', top: '25%' },
-  { text: 'λ = h/p',  left: '12%', top: '70%' },
-  { text: 'Δx·Δp ≥ ℏ/2', left: '65%', top: '65%' },
-  { text: '∇·B = 0', left: '5%',  top: '45%' },
-  { text: 'E = hν',  left: '72%', top: '43%' },
+  { text: 'E = mc²', left: '8%', top: '18%' },
+  { text: 'F = ma', left: '78%', top: '22%' },
+  { text: 'λ = h/p', left: '20%', top: '72%' },
+  { text: 'Δx·Δp ≥ ℏ/2', left: '62%', top: '68%' },
+  { text: '∇·B = 0', left: '44%', top: '14%' },
+  { text: 'E = hν', left: '50%', top: '78%' },
 ]
 
 export function LoadingPage() {
@@ -144,13 +144,15 @@ export function LoadingPage() {
 
   useEffect(() => {
     const frameInterval = setInterval(() => {
-      setFrame(f => (f + 1) % frames.length)
+      setFrame((prev) => (prev + 1) % frames.length)
     }, 120)
 
     const moveInterval = setInterval(() => {
-      setPosition(p => {
-        if (typeof window !== 'undefined' && p > window.innerWidth + 160) return -160
-        return p + 6
+      setPosition((prev) => {
+        if (prev > (typeof window !== 'undefined' ? window.innerWidth + 160 : 1400)) {
+          return -160
+        }
+        return prev + 6
       })
     }, 16)
 
@@ -163,61 +165,60 @@ export function LoadingPage() {
   const currentFrame = frames[frame]
 
   return (
-    <div className="fixed inset-0 z-50 flex items-center justify-center bg-[#0f172a] overflow-hidden">
-      {/* Floating physics equations */}
+    <div
+      className="fixed inset-0 z-50 overflow-hidden"
+      style={{ backgroundColor: '#0f172a' }}
+    >
       {EQUATIONS.map((eq, i) => (
-        <span
+        <div
           key={i}
-          className="absolute font-mono pointer-events-none select-none text-indigo-400/40 text-sm"
           style={{
+            position: 'absolute',
             left: eq.left,
             top: eq.top,
-            animation: `floatEq ${5 + i * 0.8}s ease-in-out infinite`,
-            animationDelay: `${i * 0.5}s`,
+            color: '#475569',
+            fontFamily: 'serif',
+            fontSize: '1.1rem',
+            fontStyle: 'italic',
+            userSelect: 'none',
+            animation: `floatEq ${3 + i * 0.4}s ease-in-out infinite alternate`,
+            animationDelay: `${i * 0.3}s`,
           }}
         >
           {eq.text}
-        </span>
-      ))}
-
-      {/* Running Einstein */}
-      <div
-        className="absolute"
-        style={{
-          left: position,
-          top: '50%',
-          transform: 'translateY(-50%)',
-        }}
-      >
-        <div
-          style={{
-            display: 'grid',
-            gridTemplateColumns: `repeat(16, ${PIXEL_SIZE}px)`,
-            gridTemplateRows: `repeat(24, ${PIXEL_SIZE}px)`,
-            imageRendering: 'pixelated',
-            filter: 'drop-shadow(0 0 8px rgba(99,102,241,0.4))',
-          }}
-        >
-          {currentFrame.flat().map((pixel, i) => (
-            <div
-              key={i}
-              style={{
-                width: PIXEL_SIZE,
-                height: PIXEL_SIZE,
-                backgroundColor: colorMap[pixel] ?? 'transparent',
-              }}
-            />
-          ))}
         </div>
-      </div>
+      ))}
 
       <style>{`
         @keyframes floatEq {
-          0%, 100% { transform: translateY(0) rotate(0deg); opacity: 0.4; }
-          33% { transform: translateY(-8px) rotate(1deg); opacity: 0.7; }
-          66% { transform: translateY(5px) rotate(-1deg); opacity: 0.25; }
+          from { opacity: 0.25; transform: translateY(0px); }
+          to   { opacity: 0.55; transform: translateY(-8px); }
         }
       `}</style>
+
+      <div
+        style={{
+          position: 'absolute',
+          left: position,
+          top: '50%',
+          transform: 'translateY(-50%)',
+          display: 'grid',
+          gridTemplateColumns: `repeat(16, ${PIXEL_SIZE}px)`,
+          gridTemplateRows: `repeat(24, ${PIXEL_SIZE}px)`,
+          imageRendering: 'pixelated',
+        }}
+      >
+        {currentFrame.flat().map((pixel, index) => (
+          <div
+            key={index}
+            style={{
+              width: PIXEL_SIZE,
+              height: PIXEL_SIZE,
+              backgroundColor: colorMap[pixel],
+            }}
+          />
+        ))}
+      </div>
     </div>
   )
 }
