@@ -121,7 +121,7 @@ export function ArticleContent({ content }: ArticleContentProps) {
               return (
                 <ScrollReveal key={index} type="fade-in" delay={50}>
                   <div
-                    className="my-2 overflow-x-auto text-center"
+                    className="article-body__math my-2 text-center"
                     dangerouslySetInnerHTML={{ __html: html }}
                   />
                 </ScrollReveal>
@@ -133,6 +133,15 @@ export function ArticleContent({ content }: ArticleContentProps) {
                 </ScrollReveal>
               )
             }
+          }
+
+          if (trimmed.startsWith("<")) {
+            const html = renderMath(trimmed)
+            return (
+              <ScrollReveal key={index} type="fade-up">
+                <div className="article-body__figure" dangerouslySetInnerHTML={{ __html: html }} />
+              </ScrollReveal>
+            )
           }
 
           return (
