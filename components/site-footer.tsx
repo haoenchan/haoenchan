@@ -1,39 +1,25 @@
-import Link from "next/link"
-import { Instagram } from "lucide-react"
-
 export function SiteFooter() {
   return (
-    <footer className="relative mt-12">
-      {/* Gradient border */}
-      <div className="h-px bg-gradient-to-r from-transparent via-border/40 to-transparent" />
-
-      <div className="mx-auto flex max-w-3xl flex-col items-center justify-between gap-4 px-6 py-10 sm:flex-row">
-        <p className="text-sm text-muted-foreground/40">
-          {"2026 Haoenchan. All rights reserved."}
-        </p>
-        <nav className="flex items-center gap-6" aria-label="Footer navigation">
-          <Link
-            href="/"
-            className="text-sm text-muted-foreground/40 transition-colors duration-200 hover:text-foreground"
-          >
-            About
-          </Link>
-          <Link
-            href="/blog"
-            className="text-sm text-muted-foreground/40 transition-colors duration-200 hover:text-foreground"
-          >
-            Articles
-          </Link>
-          <a
-            href="https://instagram.com/haoenphysics"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="group inline-flex items-center gap-1.5 text-sm text-muted-foreground/40 transition-colors duration-200 hover:text-foreground"
-          >
-            <Instagram className="h-3.5 w-3.5 transition-transform duration-300 group-hover:scale-110" />
-            Instagram
-          </a>
-        </nav>
+    <footer className="site-footer">
+      <div className="hero__rule">
+        <span className="hero__rule-line" />
+      </div>
+      <div className="site-footer__inner">
+        <div className="site-footer__bottom">
+          <span className="site-footer__copy">2026 Haoenchan. All rights reserved.</span>
+          <nav className="site-footer__nav" aria-label="Footer">
+            <a href="/">About</a>
+            <a href="/blog">Articles</a>
+            <a href="https://instagram.com/haoenphysics" target="_blank" rel="noopener noreferrer">
+              <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" style={{ verticalAlign: "-2px", marginRight: "4px" }}>
+                <rect x="2" y="2" width="20" height="20" rx="5" />
+                <path d="M16 11.37A4 4 0 1112.63 8 4 4 0 0116 11.37z" />
+                <line x1="17.5" y1="6.5" x2="17.51" y2="6.5" />
+              </svg>
+              Instagram
+            </a>
+          </nav>
+        </div>
       </div>
     </footer>
   )

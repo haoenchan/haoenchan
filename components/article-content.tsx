@@ -10,75 +10,43 @@ interface ArticleContentProps {
 
 function renderMath(text: string): string {
   let result = text.replace(/\$\$([^$]+?)\$\$/g, (_, math) => {
-    try {
-      return katex.renderToString(math.trim(), { displayMode: true, throwOnError: false })
-    } catch {
-      return math
-    }
+    try { return katex.renderToString(math.trim(), { displayMode: true, throwOnError: false }) }
+    catch { return math }
   })
   result = result.replace(/\$([^$]+?)\$/g, (_, math) => {
-    try {
-      return katex.renderToString(math.trim(), { displayMode: false, throwOnError: false })
-    } catch {
-      return math
-    }
+    try { return katex.renderToString(math.trim(), { displayMode: false, throwOnError: false }) }
+    catch { return math }
   })
   return result
 }
 
 function RichText({ text }: { text: string }) {
   const html = renderMath(
-    text.replace(/\*\*([^*]+)\*\*/g, '<strong class="text-foreground font-semibold">$1</strong>')
+    text.replace(/\*\*([^*]+)\*\*/g, '<strong>$1</strong>')
   )
   return <span dangerouslySetInnerHTML={{ __html: html }} />
 }
 
-type AnimationType = 'fade-up' | 'fade-left' | 'fade-in'
-
-function ScrollReveal({
-  children,
-  delay = 0,
-  type = 'fade-up',
-}: {
-  children: React.ReactNode
-  delay?: number
-  type?: AnimationType
-}) {
+function Reveal({ children, delay = 0, y = 24 }: { children: React.ReactNode; delay?: number; y?: number }) {
   const ref = useRef<HTMLDivElement>(null)
   const [visible, setVisible] = useState(false)
-
   useEffect(() => {
     const el = ref.current
     if (!el) return
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting) {
-          setVisible(true)
-          observer.disconnect()
-        }
-      },
-      { threshold: 0.1, rootMargin: '0px 0px -40px 0px' }
+    const o = new IntersectionObserver(
+      ([entry]) => { if (entry.isIntersecting) { setVisible(true); o.disconnect() } },
+      { threshold: 0.1, rootMargin: "0px 0px -40px 0px" }
     )
-    observer.observe(el)
-    return () => observer.disconnect()
+    o.observe(el)
+    return () => o.disconnect()
   }, [])
-
-  const transforms: Record<AnimationType, string> = {
-    'fade-up': visible ? 'translateY(0)' : 'translateY(24px)',
-    'fade-left': visible ? 'translateX(0)' : 'translateX(-24px)',
-    'fade-in': 'none',
-  }
-
   return (
-    <div
-      ref={ref}
-      style={{
-        opacity: visible ? 1 : 0,
-        transform: transforms[type],
-        transition: `opacity 0.6s ease ${delay}ms, transform 0.6s ease ${delay}ms`,
-        willChange: 'opacity, transform',
-      }}
-    >
+    <div ref={ref} style={{
+      opacity: visible ? 1 : 0,
+      transform: visible ? "translateY(0)" : `translateY(${y}px)`,
+      transition: `opacity 0.7s ease ${delay}ms, transform 0.7s ease ${delay}ms`,
+      willChange: "opacity, transform",
+    }}>
       {children}
     </div>
   )
@@ -88,68 +56,78 @@ export function ArticleContent({ content }: ArticleContentProps) {
   const blocks = content.split("\n\n")
 
   return (
-    <article className="py-12 sm:py-16">
-      <div className="flex flex-col gap-6">
-        {blocks.map((block, index) => {
+    <article className="article-body">
+      <div className="article-body__flow">
+        {blocks.map((block, i) => {
           const trimmed = block.trim()
           if (!trimmed) return null
 
           if (trimmed.startsWith("### ")) {
             return (
-              <ScrollReveal key={index} type="fade-left">
-                <h3 className="mt-2 font-serif text-xl font-bold tracking-tight text-foreground">
-                  <RichText text={trimmed.replace("### ", "")} />
-                </h3>
-              </ScrollReveal>
+              <Reveal key={i} y={16}>
+                <h3 className="article-body__h3"><RichText text={trimmed.replace("### ", "")} /></h3>
+              </Reveal>
             )
           }
-
           if (trimmed.startsWith("## ")) {
             return (
-              <ScrollReveal key={index} type="fade-left">
-                <h2 className="mt-4 font-serif text-2xl font-bold tracking-tight text-foreground">
-                  <RichText text={trimmed.replace("## ", "")} />
-                </h2>
-              </ScrollReveal>
+              <Reveal key={i} y={16}>
+                <h2 className="article-body__h2"><RichText text={trimmed.replace("## ", "")} /></h2>
+              </Reveal>
             )
           }
-
+          if (trimmed.startsWith("#### ")) {
+            return (
+              <Reveal key={i} y={16}>
+                <h4 className="article-body__h4"><RichText text={trimmed.replace("#### ", "")} /></h4>
+              </Reveal>
+            )
+          }
           if (trimmed.startsWith("$$") && trimmed.endsWith("$$")) {
             const math = trimmed.slice(2, -2).trim()
             try {
               const html = katex.renderToString(math, { displayMode: true, throwOnError: false })
               return (
-                <ScrollReveal key={index} type="fade-in" delay={50}>
-                  <div
-                    className="article-body__math my-2 text-center"
-                    dangerouslySetInnerHTML={{ __html: html }}
-                  />
-                </ScrollReveal>
+                <Reveal key={i} delay={50} y={16}>
+                  <div className="article-body__math" dangerouslySetInnerHTML={{ __html: html }} />
+                </Reveal>
               )
             } catch {
-              return (
-                <ScrollReveal key={index} type="fade-up">
-                  <p className="text-base text-foreground/80">{math}</p>
-                </ScrollReveal>
-              )
+              return <Reveal key={i}><p className="article-body__p">{math}</p></Reveal>
             }
           }
-
+          if (trimmed.startsWith("- ")) {
+            const items = trimmed.split("\n").filter(l => l.startsWith("- ")).map(l => l.slice(2))
+            return (
+              <Reveal key={i}>
+                <ul className="article-body__ul">
+                  {items.map((it, j) => <li key={j}><RichText text={it} /></li>)}
+                </ul>
+              </Reveal>
+            )
+          }
+          if (/^\d+\.\s/.test(trimmed)) {
+            const items = trimmed.split("\n").filter(l => /^\d+\.\s/.test(l)).map(l => l.replace(/^\d+\.\s+/, ""))
+            return (
+              <Reveal key={i}>
+                <ol className="article-body__ol">
+                  {items.map((it, j) => <li key={j}><RichText text={it} /></li>)}
+                </ol>
+              </Reveal>
+            )
+          }
           if (trimmed.startsWith("<")) {
             const html = renderMath(trimmed)
             return (
-              <ScrollReveal key={index} type="fade-up">
+              <Reveal key={i} y={16}>
                 <div className="article-body__figure" dangerouslySetInnerHTML={{ __html: html }} />
-              </ScrollReveal>
+              </Reveal>
             )
           }
-
           return (
-            <ScrollReveal key={index} type="fade-up">
-              <p className="text-base leading-relaxed text-foreground/80">
-                <RichText text={trimmed} />
-              </p>
-            </ScrollReveal>
+            <Reveal key={i}>
+              <p className="article-body__p"><RichText text={trimmed} /></p>
+            </Reveal>
           )
         })}
       </div>

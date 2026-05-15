@@ -6,6 +6,8 @@ import { MagneticHover } from "@/components/effects/magnetic-hover"
 import { SignatureCard } from "@/components/signature-card"
 import { FloatingDecor } from "@/components/effects/floating-decor"
 import { BlackHole } from "@/components/effects/black-hole"
+import { SiteHeader } from "@/components/site-header"
+import { SiteFooter } from "@/components/site-footer"
 
 export default function HomePage() {
   const recentPosts = getAllPosts().slice(0, 3)
@@ -18,9 +20,9 @@ export default function HomePage() {
       </div>
 
       {/* Floating decorations */}
-      <div style={{ position: "relative" }}>
-        <FloatingDecor />
-      </div>
+      <FloatingDecor />
+
+      <SiteHeader />
 
       <main className="main">
         {/* Hero — centered with avatar */}
@@ -111,6 +113,8 @@ export default function HomePage() {
           <RecentPosts posts={recentPosts} />
         </section>
       </main>
+
+      <SiteFooter />
     </div>
   )
 }

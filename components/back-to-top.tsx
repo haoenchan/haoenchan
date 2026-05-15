@@ -1,7 +1,6 @@
 "use client"
 
 import { useEffect, useState } from "react"
-import { ArrowUp } from "lucide-react"
 
 export function BackToTop() {
   const [visible, setVisible] = useState(false)
@@ -16,7 +15,9 @@ export function BackToTop() {
       onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
       aria-label="Back to top"
     >
-      <ArrowUp className="h-3.5 w-3.5" />
+      <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+        <path d="M12 19V5M5 12l7-7 7 7" />
+      </svg>
     </button>
   )
 }
