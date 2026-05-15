@@ -3,7 +3,6 @@
 import Link from "next/link"
 import { useState, useMemo } from "react"
 import type { BlogPost } from "@/lib/blog-data"
-import { cn } from "@/lib/utils"
 
 interface BlogListProps {
   posts: BlogPost[]
@@ -28,27 +27,27 @@ export function BlogList({ posts }: BlogListProps) {
       : posts.filter((post) => post.category === activeCategory)
 
   return (
-    <section className="py-8">
-      {/* Category filter */}
-      <div className="filter-chips pb-2">
+    <>
+      <div className="filter-chips" role="tablist" aria-label="Categories">
         {categories.map((category) => (
           <button
             key={category}
+            role="tab"
+            aria-selected={activeCategory === category}
             onClick={() => setActiveCategory(category)}
-            className={cn("filter-chip", activeCategory === category && "is-active")}
+            className={`filter-chip${activeCategory === category ? " is-active" : ""}`}
           >
-            {category}
+            <span>{category}</span>
             <span className="filter-chip__count">{counts[category] ?? 0}</span>
           </button>
         ))}
       </div>
 
-      {/* Posts */}
-      <ol className="article-list article-list--numbered mt-4">
+      <ol className="article-list article-list--numbered">
         {filteredPosts.map((post, index) => {
           const num = String(index + 1).padStart(2, "0")
           return (
-            <li key={post.slug}>
+            <li key={post.slug} className="article-row-reveal">
               <Link href={`/blog/${post.slug}`} className="article-row">
                 <div className="article-row__num-col">
                   <span className="article-row__num"><em>{num}</em></span>
@@ -64,7 +63,7 @@ export function BlogList({ posts }: BlogListProps) {
                 </div>
                 <div className="article-row__body">
                   <h2 className="article-row__title">
-                    <span>{post.title}</span>
+                    <span className="article-row__title-text">{post.title}</span>
                     <svg
                       className="article-row__arrow"
                       viewBox="0 0 24 24" width="16" height="16"
@@ -84,10 +83,8 @@ export function BlogList({ posts }: BlogListProps) {
       </ol>
 
       {filteredPosts.length === 0 && (
-        <p className="py-12 text-center text-muted-foreground italic">
-          No posts in this category yet.
-        </p>
+        <p className="empty-state">No posts in this category yet.</p>
       )}
-    </section>
+    </>
   )
 }
