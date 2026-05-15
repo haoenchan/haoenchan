@@ -51,7 +51,7 @@ export function BlogList({ posts }: BlogListProps) {
             <li key={post.slug}>
               <Link href={`/blog/${post.slug}`} className="article-row">
                 <div className="article-row__num-col">
-                  <span className="article-row__num">{num}</span>
+                  <span className="article-row__num"><em>{num}</em></span>
                 </div>
                 <div className="article-row__meta-col">
                   <span className={`article-row__cat article-row__cat--${post.category.toLowerCase()}`}>

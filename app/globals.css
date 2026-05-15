@@ -324,12 +324,20 @@
 .article-row__num {
   font-family: var(--font-serif); font-weight: 400; font-size: 3rem; line-height: 0.9;
   font-style: italic;
-  color: oklch(0.93 0.005 200 / 0.55);
+  color: oklch(0.93 0.005 200 / 0.5);
   transition: color 300ms ease, transform 300ms ease;
 }
+.article-row__num em {
+  font-style: italic;
+  background: linear-gradient(180deg, var(--foreground), oklch(0.93 0.005 200 / 0.4));
+  background-clip: text; -webkit-background-clip: text; color: transparent;
+}
 .article-row:hover .article-row__num {
-  color: var(--primary);
   transform: translateX(-4px);
+}
+.article-row:hover .article-row__num em {
+  background: linear-gradient(180deg, var(--primary), var(--accent));
+  background-clip: text; -webkit-background-clip: text; color: transparent;
 }
 .article-row__meta-col {
   display: flex; flex-direction: column; gap: 0.4rem;
