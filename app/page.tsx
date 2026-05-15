@@ -1,88 +1,116 @@
 import Link from "next/link"
+import Image from "next/image"
 import { getAllPosts } from "@/lib/blog-data"
-import { ArrowRight, Sparkles } from "lucide-react"
 import { RecentPosts } from "@/components/recent-posts"
-import { PhysicsCanvas } from "@/components/physics-canvas"
 import { MagneticHover } from "@/components/effects/magnetic-hover"
 import { SignatureCard } from "@/components/signature-card"
+import { FloatingDecor } from "@/components/effects/floating-decor"
+import { BlackHole } from "@/components/effects/black-hole"
 
 export default function HomePage() {
   const recentPosts = getAllPosts().slice(0, 3)
 
   return (
-    <div className="relative mx-auto max-w-3xl px-6 overflow-hidden">
+    <div className="page page--wide">
+      {/* Black hole background */}
+      <div className="black-hole-host" aria-hidden="true">
+        <BlackHole opacity={0.9} />
+      </div>
 
-      {/* Ambient background glows */}
-      <div className="pointer-events-none absolute -top-40 left-1/2 -translate-x-1/2 h-[600px] w-[800px] rounded-full bg-gradient-to-br from-sky-500/[0.06] via-purple-500/[0.04] to-transparent blur-[120px] animate-glow-drift" />
-      <div className="pointer-events-none absolute top-80 -right-40 h-[350px] w-[350px] rounded-full bg-gradient-to-br from-emerald-500/[0.04] to-transparent blur-[100px] animate-glow-drift-reverse" />
+      {/* Floating decorations */}
+      <div style={{ position: "relative" }}>
+        <FloatingDecor />
+      </div>
 
-      {/* Physics diagram animations behind content */}
-      <PhysicsCanvas />
+      <main className="main">
+        {/* Hero — centered with avatar */}
+        <section className="hero hero--centered">
+          <div className="hero__glow hero__glow--a" aria-hidden="true" />
+          <div className="hero__glow hero__glow--b" aria-hidden="true" />
 
-      {/* Hero */}
-      <section className="relative py-24 sm:py-32">
-        <div className="lg:grid lg:grid-cols-[1.4fr_1fr] lg:gap-20 lg:items-start">
-          <div>
-            {/* Tag */}
-            <div className="mb-8 animate-fade-in">
-              <span className="inline-flex items-center gap-2 rounded-full bg-card px-4 py-2 text-xs font-semibold tracking-widest uppercase text-muted-foreground ring-1 ring-border/50">
-                <Sparkles className="h-3.5 w-3.5 text-sky-400 animate-[pulse_3s_ease-in-out_infinite]" />
-                <span>Math & Physics</span>
-              </span>
-            </div>
-
-            {/* Heading — with rainbow accent */}
-            <h1 className="font-serif text-5xl font-bold leading-[1.1] tracking-tight sm:text-6xl animate-fade-in-up">
-              <span className="text-foreground">About </span>
-              <span className="text-rainbow">Me</span>
-            </h1>
-
-            <p className="mt-8 max-w-lg text-lg leading-relaxed text-foreground/75 animate-fade-in-up [animation-delay:150ms]">
-              {"Hi! I'm Haoen and I am interested in physics and a bit of math. Here, I will post some of my own articles including my own solutions to some problems and also some handouts."}
-            </p>
-
-            <div className="mt-10 animate-fade-in-up [animation-delay:300ms]">
-              <MagneticHover>
-                <Link
-                  href="/blog"
-                  className="group relative inline-flex items-center gap-3 overflow-hidden rounded-full bg-card px-6 py-3 text-sm font-semibold text-foreground ring-1 ring-border/50 transition-all duration-300 hover:ring-primary/50 hover:shadow-[0_0_30px_rgba(56,189,248,0.1)]"
+          <div className="hero__grid">
+            <div className="hero__lead hero__lead--centered">
+              {/* Avatar */}
+              <div className="hero__avatar-wrap animate-fade-in">
+                <a
+                  href="https://instagram.com/haoenphysics"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="hero__avatar"
+                  aria-label="haoenphysics on Instagram"
                 >
-                  <span className="relative z-10">Read all articles</span>
-                  <ArrowRight className="relative z-10 h-4 w-4 text-muted-foreground transition-all duration-300 group-hover:translate-x-1 group-hover:text-primary" />
-                  <div className="absolute inset-0 -translate-x-full bg-gradient-to-r from-transparent via-white/[0.03] to-transparent transition-transform duration-700 ease-out group-hover:translate-x-full" />
-                </Link>
-              </MagneticHover>
+                  <span className="hero__avatar-ring" aria-hidden="true" />
+                  <Image
+                    src="/images/haoen-v2.jpg"
+                    alt="Haoen"
+                    width={200}
+                    height={200}
+                    priority
+                    style={{ objectFit: "cover", objectPosition: "center 18%" }}
+                  />
+                  <span className="hero__avatar-status" aria-hidden="true" />
+                </a>
+              </div>
+
+              {/* Chip */}
+              <div className="chip animate-fade-in">
+                <span className="sparkle" aria-hidden="true">
+                  <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                    <path d="M12 3l1.9 5.8L19.8 11l-5.9 2.2L12 19l-1.9-5.8L4.2 11l5.9-2.2L12 3z" />
+                  </svg>
+                </span>
+                <span>Math &amp; Physics</span>
+              </div>
+
+              {/* Heading */}
+              <h1 className="hero__title">
+                <span className="hero__title-line animate-fade-in-up">About </span>
+                <span className="hero__title-line hero__title-line--accent animate-fade-in-up" style={{ animationDelay: "150ms" }}>
+                  <em className="text-rainbow text-rainbow--rotating">Me</em>
+                </span>
+              </h1>
+
+              {/* Lead text */}
+              <p className="hero__lead-text animate-fade-in-up" style={{ animationDelay: "300ms" }}>
+                {"Hi! I'm Haoen and I am interested in physics and a bit of math. Here, I will post some of my own articles including my own solutions to some problems and also some handouts."}
+              </p>
+
+              {/* CTA */}
+              <div className="hero__cta-row animate-fade-in-up" style={{ animationDelay: "450ms" }}>
+                <MagneticHover strength={0.18} radius={140}>
+                  <Link href="/blog" className="cta-pill">
+                    <span>Read all articles</span>
+                    <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                      <path d="M5 12h14M13 5l7 7-7 7" />
+                    </svg>
+                    <span className="cta-pill__shimmer" aria-hidden="true" />
+                  </Link>
+                </MagneticHover>
+              </div>
             </div>
+
+            <SignatureCard />
           </div>
+        </section>
 
-          <SignatureCard />
-        </div>
-      </section>
+        {/* Divider */}
+        <div className="divider-fade" />
 
-      {/* Divider */}
-      <div className="h-px bg-gradient-to-r from-transparent via-border/60 to-transparent" />
-
-      {/* Recent Writing */}
-      <section className="relative py-20">
-        <div className="flex items-center justify-between">
-          <h2 className="font-serif text-2xl font-bold tracking-tight text-foreground">
-            Recent Articles
-          </h2>
-          <Link
-            href="/blog"
-            className="group inline-flex items-center gap-1 text-sm font-medium text-muted-foreground transition-colors duration-200 hover:text-primary"
-          >
-            <span className="relative after:absolute after:bottom-0 after:left-0 after:h-px after:w-0 after:bg-primary after:transition-all after:duration-300 group-hover:after:w-full">
-              View all
-            </span>
-            <ArrowRight className="h-3.5 w-3.5 -translate-x-1 opacity-0 transition-all duration-300 group-hover:translate-x-0 group-hover:opacity-100" />
-          </Link>
-        </div>
-        <p className="mt-3 text-sm text-muted-foreground/80">
-          {"Here are some of the articles I have recently written in my free time! :pp"}
-        </p>
-        <RecentPosts posts={recentPosts} />
-      </section>
+        {/* Recent Writing */}
+        <section className="recent">
+          <div className="section-head">
+            <h2 className="recent__title">Recent Articles</h2>
+            <Link href="/blog" className="recent__viewall">
+              <span>View all</span>
+              <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                <path d="M5 12h14M13 5l7 7-7 7" />
+              </svg>
+            </Link>
+            <p className="recent__sub">{"Here are some of the articles I have recently written in my free time! :pp"}</p>
+          </div>
+          <RecentPosts posts={recentPosts} />
+        </section>
+      </main>
     </div>
   )
 }
