@@ -351,11 +351,6 @@
 }
 .article-row__num em {
   font-style: italic;
-  color: oklch(0.93 0.005 200 / 0.5);
-  transition: color 300ms ease, transform 300ms ease;
-}
-.article-row__num em {
-  font-style: italic;
   background: linear-gradient(180deg, var(--foreground), oklch(0.93 0.005 200 / 0.4));
   background-clip: text; -webkit-background-clip: text; color: transparent;
 }
@@ -468,7 +463,7 @@
 .article-body__figure p, .article-body__figure em {
   font-family: var(--font-serif); font-style: italic;
   font-size: 0.9rem; color: oklch(0.93 0.005 200 / 0.55); margin-top: 0.75rem;
-}}
+}
 
 /* ============================================================
    PAGE SHELL + CHARGE FIELD HOST
