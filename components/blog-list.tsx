@@ -44,7 +44,7 @@ export function BlogList({ posts }: BlogListProps) {
       </div>
 
       {/* Posts */}
-      <ol className="article-list mt-4">
+      <ol className="article-list article-list--numbered mt-4">
         {filteredPosts.map((post, index) => {
           const num = String(index + 1).padStart(2, "0")
           return (
