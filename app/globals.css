@@ -463,7 +463,7 @@
 .article-body__figure p, .article-body__figure em {
   font-family: var(--font-serif); font-style: italic;
   font-size: 0.9rem; color: oklch(0.93 0.005 200 / 0.55); margin-top: 0.75rem;
-}}
+}
 
 /* ============================================================
    PAGE SHELL + CHARGE FIELD HOST
