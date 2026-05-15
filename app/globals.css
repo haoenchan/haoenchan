@@ -671,14 +671,12 @@ body { overflow-x: hidden; -webkit-font-smoothing: antialiased; -moz-osx-font-sm
 }
 .article-row__num em {
   font-style: italic;
-  background: linear-gradient(180deg, var(--foreground), oklch(0.93 0.005 200 / 0.4));
-  background-clip: text; -webkit-background-clip: text; color: transparent;
+  color: oklch(0.93 0.005 200 / 0.85);
+}
+.article-row:hover .article-row__num em {
+  color: var(--primary);
 }
 .article-row:hover .article-row__num { transform: translateX(-4px); }
-.article-row:hover .article-row__num em {
-  background: linear-gradient(180deg, var(--primary), var(--accent));
-  background-clip: text; -webkit-background-clip: text; color: transparent;
-}
 
 .article-row__meta-col {
   display: flex; flex-direction: column; gap: 0.4rem;
@@ -1176,38 +1174,15 @@ body { overflow-x: hidden; -webkit-font-smoothing: antialiased; -moz-osx-font-sm
   object-fit: cover; object-position: center 18%;
   border-radius: 18px; filter: contrast(1.05) saturate(0.92);
   transition: filter 400ms ease, transform 600ms cubic-bezier(0.22, 1, 0.36, 1);
+  /* Soft black-hole-style vignette so the photo edges fade into the canvas */
+  -webkit-mask-image: radial-gradient(ellipse at center, #000 55%, transparent 100%);
+          mask-image: radial-gradient(ellipse at center, #000 55%, transparent 100%);
 }
-.hero__avatar:hover img { filter: contrast(1.05) saturate(1); transform: scale(1.06); }
-.hero__avatar-ring {
-  position: absolute; inset: -4px; border-radius: 22px; z-index: -1;
-  background: conic-gradient(from 0deg,
-    var(--rainbow-red), var(--rainbow-orange), var(--rainbow-yellow),
-    var(--rainbow-green), var(--rainbow-sky), var(--rainbow-purple), var(--rainbow-red));
-  filter: blur(2px); opacity: 0.45;
-  transition: opacity 400ms ease, filter 400ms ease;
-  animation: avatar-ring-spin 14s linear infinite;
-}
-.hero__avatar:hover .hero__avatar-ring { opacity: 0.9; filter: blur(4px); }
-@keyframes avatar-ring-spin { to { transform: rotate(360deg); } }
-.hero__avatar::before {
-  content: ""; position: absolute; inset: 0; border-radius: 18px;
-  box-shadow: inset 0 0 0 2px oklch(0.06 0.005 220), 0 6px 30px rgba(0,0,0,0.5);
-  pointer-events: none; z-index: 1;
-}
-.hero__avatar-status {
-  position: absolute; right: 4px; bottom: 6px;
-  width: 14px; height: 14px; border-radius: 50%;
-  background: var(--primary);
-  box-shadow: 0 0 0 3px oklch(0.06 0.005 220), 0 0 12px rgba(56,189,248,0.6);
-  z-index: 2; animation: avatar-status-pulse 2.4s ease-in-out infinite;
-}
-@keyframes avatar-status-pulse {
-  0%, 100% { transform: scale(1); opacity: 1; }
-  50% { transform: scale(0.85); opacity: 0.7; }
-}
-@media (prefers-reduced-motion: reduce) {
-  .hero__avatar-ring, .hero__avatar-status { animation: none !important; }
-}
+.hero__avatar:hover img { filter: contrast(1.05) saturate(1); transform: scale(1.04); }
+/* No rainbow ring, no inner stroke — photo just bleeds into the canvas */
+.hero__avatar-ring,
+.hero__avatar-status { display: none; }
+.hero__avatar::before { content: none; }
 @media (max-width: 600px) {
   .hero__avatar { width: 140px; height: 140px; }
 }
