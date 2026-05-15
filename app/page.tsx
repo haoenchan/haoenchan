@@ -3,7 +3,6 @@ import Image from "next/image"
 import { getAllPosts } from "@/lib/blog-data"
 import { RecentPosts } from "@/components/recent-posts"
 import { MagneticHover } from "@/components/effects/magnetic-hover"
-import { SignatureCard } from "@/components/signature-card"
 import { FloatingDecor } from "@/components/effects/floating-decor"
 import { BlackHole } from "@/components/effects/black-hole"
 import { SiteHeader } from "@/components/site-header"
@@ -90,8 +89,6 @@ export default function HomePage() {
                 </MagneticHover>
               </div>
             </div>
-
-            <SignatureCard />
           </div>
         </section>
 
