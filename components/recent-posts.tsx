@@ -7,7 +7,7 @@ interface RecentPostsProps {
 
 export function RecentPosts({ posts }: RecentPostsProps) {
   return (
-    <ol className="article-list mt-6">
+    <ol className="article-list article-list--numbered mt-6">
       {posts.map((post, index) => {
         const num = String(index + 1).padStart(2, "0")
         return (
