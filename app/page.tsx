@@ -9,7 +9,9 @@ import { SiteHeader } from "@/components/site-header"
 import { SiteFooter } from "@/components/site-footer"
 
 export default function HomePage() {
-  const recentPosts = getAllPosts().slice(0, 3)
+  const recentPosts = [...getAllPosts()]
+    .sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime())
+    .slice(0, 3)
 
   return (
     <div className="page page--wide">
