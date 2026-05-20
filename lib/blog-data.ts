@@ -833,7 +833,7 @@ where $-\frac{b}{2m}$ is the damping factor in the exponent. Therefore
 
 $$\boxed{E_{\text{total}} = \tfrac{1}{2}k\,e^{-\frac{b}{m}t}\,x_m^2}$$
 
-The energy decays at twice the rate of the amplitude, which makes sense because $E \propto x_m^2$ and squaring the exponential doubles the decay constant.\`
+The energy decays at twice the rate of the amplitude, which makes sense because $E \propto x_m^2$ and squaring the exponential doubles the decay constant.`
   }
 
 ]
