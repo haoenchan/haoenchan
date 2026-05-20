@@ -741,7 +741,7 @@ where the amplitude is $x_m = \sqrt{A^2+B^2}$ and the phase difference is $\varp
 
 $$\boxed{x(t) = x_m\cos(\omega t + \varphi), \quad \omega = \sqrt{\frac{k}{m}}}$$
 
-<figure style="margin:1.5rem 0;text-align:center"><img src="/images/shm-circle.png" alt="SHM as projection of uniform circular motion" style="max-width:100%;border-radius:8px" /><figcaption style="margin-top:0.5rem;font-size:0.85rem;opacity:0.6">SHM as the projection of uniform circular motion: as the dot rotates around the circle at angular frequency omega, its x-component traces out a cosine.</figcaption></figure>
+<figure style="margin:1.5rem 0;text-align:center"><img src="/images/shm-circle.gif" alt="SHM as projection of uniform circular motion" style="max-width:100%;border-radius:8px" /><figcaption style="margin-top:0.5rem;font-size:0.85rem;opacity:0.6">SHM as the projection of uniform circular motion: as the dot rotates around the circle at angular frequency omega, its x-component traces out a cosine.</figcaption></figure>
 
 ### Mechanical Energy
 
@@ -816,7 +816,7 @@ which we have already proven in the previous section on SHM. So the solution to 
 
 $$\boxed{x(t) = e^{-\frac{b}{2m}t}\,x_m\cos(\omega' t + \varphi), \quad \omega' = \frac{\sqrt{4mk - b^2}}{2m}}$$
 
-<figure style="margin:1.5rem 0;text-align:center"><img src="/images/damped-circle.png" alt="Underdamped motion" style="max-width:100%;border-radius:8px" /><figcaption style="margin-top:0.5rem;font-size:0.85rem;opacity:0.6">Underdamped motion: still cosine-like, but the amplitude decays as exp(-bt/2m). As the dot spirals inward on the left, the projection on the right oscillates within a shrinking window.</figcaption></figure>
+<figure style="margin:1.5rem 0;text-align:center"><img src="/images/damped-circle.gif" alt="Underdamped motion" style="max-width:100%;border-radius:8px" /><figcaption style="margin-top:0.5rem;font-size:0.85rem;opacity:0.6">Underdamped motion: still cosine-like, but the amplitude decays as exp(-bt/2m). As the dot spirals inward on the left, the projection on the right oscillates within a shrinking window.</figcaption></figure>
 
 ### Mechanical Energy
 
