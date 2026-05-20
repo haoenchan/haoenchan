@@ -686,7 +686,7 @@ $$\\prod_{n=2}^{\\infty} \\left(\\frac{n^3 - 1}{n^3 + 1}\\right)$$
     date: "2026-05-20",
     readTime: "12 min read",
     category: "Physics",
-    content: `## Simple Harmonic Oscillator
+    content: String.raw`## Simple Harmonic Oscillator
 
 Picture a block on a horizontal frictionless surface, attached to a spring. When we pull the block by a displacement $x$, it will have a **restoring force** acting on the spring. Note, that the restoring force is ALWAYS in the opposite direction as the displacement of the spring.
 
