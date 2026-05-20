@@ -677,7 +677,162 @@ $$\\prod_{n=2}^{\\infty} \\left(\\frac{n^3 - 1}{n^3 + 1}\\right)$$
     "date": "2026-03-27",
     "readTime": "4 min read",
     "category": "Physics",
-    "content": "### Backstory behind this article:\n\nA while ago, when i was doomscrolling i saw this one post that claimed that the rainbow is a cone! I figured that it would be interesting to look into it.\n\nTo understand the physics behind this, picture that sunlight enters a spherical raindrop, refracts at the air-water interface, reflects off the back of the drop, and refracts again as it exits. Let $\\theta_i$ be the angle of incidence and $\\theta_r$ the refracted angle. By Snell's law,\n\n$$\\sin\\theta_i = n\\sin\\theta_r$$\n\nwhere $n = 4/3$ is the refractive index of water.\n\nAfter one internal reflection and a second refraction, the total deviation angle $D$ of the ray from its original direction is\n\n$$D = 2\\theta_i - 4\\theta_r + \\pi.$$\n\nThe rainbow appears where the deviation is stationary with respect to $\\theta_i$, i.e. where $\\frac{dD}{d\\theta_i} = 0$. From Snell's law, differentiating implicitly,\n\n$$\\cos\\theta_i = n\\cos\\theta_r \\cdot \\frac{d\\theta_r}{d\\theta_i} \\implies \\frac{d\\theta_r}{d\\theta_i} = \\frac{\\cos\\theta_i}{n\\cos\\theta_r}.$$\n\nSo, when $\\frac{dD}{d\\theta_i} = 0$,\n\n$$2 - 4\\frac{d\\theta_r}{d\\theta_i} = 0 \\implies \\frac{d\\theta_r}{d\\theta_i} = \\frac{1}{2} \\implies \\frac{\\cos\\theta_i}{n\\cos\\theta_r} = \\frac{1}{2} \\implies \\cos\\theta_i = \\frac{n}{2}\\cos\\theta_r.$$\n\nBy Snell's law, $\\sin\\theta_r = \\frac{\\sin\\theta_i}{n}$, so $\\cos\\theta_r = \\sqrt{1 - \\frac{\\sin^2\\theta_i}{n^2}}$. Substituting,\n\n$$\\cos^2\\theta_i = \\frac{n^2}{4}\\left(1 - \\frac{\\sin^2\\theta_i}{n^2}\\right) = \\frac{n^2}{4} - \\frac{\\sin^2\\theta_i}{4} = \\frac{n^2}{4} - \\frac{1 - \\cos^2\\theta_i}{4}$$\n\n$$4\\cos^2\\theta_i = n^2 - 1 + \\cos^2\\theta_i \\implies 3\\cos^2\\theta_i = n^2 - 1 \\implies \\cos^2\\theta_i = \\frac{n^2-1}{3}.$$\n\nFor $n = 4/3$,\n\n$$\\cos^2\\theta_i = \\frac{\\frac{16}{9}-1}{3} = \\frac{\\frac{7}{9}}{3} = \\frac{7}{27} \\implies \\cos\\theta_i = \\sqrt{\\frac{7}{27}} \\approx 0.509 \\implies \\theta_i \\approx 59.4^\\circ.$$\n\nThe corresponding refracted angle is\n\n$$\\theta_r = \\arcsin\\!\\left(\\frac{\\sin 59.4^\\circ}{4/3}\\right) = \\arcsin\\!\\left(\\frac{0.860}{1.333}\\right) \\approx 40.2^\\circ.$$\n\nThe viewing angle $\\psi$ between the incoming sunlight and the ray reaching the observer is\n\n$$\\psi = \\pi - D = \\pi - (2\\theta_i - 4\\theta_r + \\pi) = 4\\theta_r - 2\\theta_i = 4(40.2^\\circ) - 2(59.4^\\circ) = 160.8^\\circ - 118.8^\\circ = 42^\\circ.$$\n\nAll raindrops lying on a cone of half-angle $42^\\circ$ centred on the line from the sun through your eye send rainbow light to your eye. The rainbow is therefore a circular arc, the intersection of this cone with the rain!\n\n$$\\psi \\approx 42^\\circ$$\n\nSo, the treasure at the end of the rainbow was inside you all along. :ppp"
+    "content": "### Backstory behind this article:\n\nA while ago, when i was doomscrolling i saw this one post that claimed that the rainbow is a cone! I figured that it would be interesting to look into it.\n\nTo understand the physics behind this, picture that sunlight enters a spherical raindrop, refracts at the air-water interface, reflects off the back of the drop, and refracts again as it exits. Let $\\theta_i$ be the angle of incidence and $\\theta_r$ the refracted angle. By Snell's law,\n\n$$\\sin\\theta_i = n\\sin\\theta_r$$\n\nwhere $n = 4/3$ is the refractive index of water.\n\nAfter one internal reflection and a second refraction, the total deviation angle $D$ of the ray from its original direction is\n\n$$D = 2\\theta_i - 4\\theta_r + \\pi.$$\n\nThe rainbow appears where the deviation is stationary with respect to $\\theta_i$, i.e. where $\\frac{dD}{d\\theta_i} = 0$. From Snell's law, differentiating implicitly,\n\n$$\\cos\\theta_i = n\\cos\\theta_r \\cdot \\frac{d\\theta_r}{d\\theta_i} \\implies \\frac{d\\theta_r}{d\\theta_i} = \\frac{\\cos\\theta_i}{n\\cos\\theta_r}.$$\n\nSo, when $\\frac{dD}{d\\theta_i} = 0$,\n\n$$2 - 4\\frac{d\\theta_r}{d\\theta_i} = 0 \\implies \\frac{d\\theta_r}{d\\theta_i} = \\frac{1}{2} \\implies \\frac{\\cos\\theta_i}{n\\cos\\theta_r} = \\frac{1}{2} \\implies \\cos\\theta_i = \\frac{n}{2}\\cos\\theta_r.$$\n\nBy Snell's law, $\\sin\\theta_r = \\frac{\\sin\\theta_i}{n}$, so $\\cos\\theta_r = \\sqrt{1 - \\frac{\\sin^2\\theta_i}{n^2}}$. Substituting,\n\n$$\\cos^2\\theta_i = \\frac{n^2}{4}\\left(1 - \\frac{\\sin^2\\theta_i}{n^2}\\right) = \\frac{n^2}{4} - \\frac{\\sin^2\\theta_i}{4} = \\frac{n^2}{4} - \\frac{1 - \\cos^2\\theta_i}{4}$$\n\n$$4\\cos^2\\theta_i = n^2 - 1 + \\cos^2\\theta_i \\implies 3\\cos^2\\theta_i = n^2 - 1 \\implies \\cos^2\\theta_i = \\frac{n^2-1}{3}.$$\n\nFor $n = 4/3$,\n\n$$\\cos^2\\theta_i = \\frac{\\frac{16}{9}-1}{3} = \\frac{\\frac{7}{9}}{3} = \\frac{7}{27} \\implies \\cos\\theta_i = \\sqrt{\\frac{7}{27}} \\approx 0.509 \\implies \\theta_i \\approx 59.4^\\circ.$$\n\nThe corresponding refracted angle is\n\n$$\\theta_r = \\arcsin\\!\\left(\\frac{\\sin 59.4^\\circ}{4/3}\\right) = \\arcsin\\!\\left(\\frac{0.860}{1.333}\\right) \\approx 40.2^\\circ.$$\n\nThe viewing angle $\\psi$ between the incoming sunlight and the ray reaching the observer is\n\n$$\\psi = \\pi - D = \\pi - (2\\theta_i - 4\\theta_r + \\pi) = 4\\theta_r - 2\\theta_i = 4(40.2^\\circ) - 2(59.4^\\circ) = 160.8^\\circ - 118.8^\\circ = 42^\\circ.$$\n\nAll raindrops lying on a cone of half-angle $42^\\circ$ centred on the line from the sun through your eye send rainbow light to your eye. The rainbow is therefore a circular arc, the intersection of this cone with the rain!\n\n$$\\psi \\approx 42^\\circ$$\n\nSo, the treasure at the end of the rainbow was inside you all along. :ppp"  ,
+  {
+    slug: "simple-harmonic-damped-oscillators",
+    title: "Simple Harmonic and Damped Oscillators",
+    excerpt: "Why is ω = √(k/m)? Starting from F = −kx we solve the equation of motion using a complex exponential ansatz, derive the general SHM solution, then extend the analysis to overdamped, critically damped, and underdamped systems.",
+    date: "2026-05-20",
+    readTime: "12 min read",
+    category: "Physics",
+    content: `## Simple Harmonic Oscillator
+
+Picture a block on a horizontal frictionless surface, attached to a spring. When we pull the block by a displacement $x$, it will have a **restoring force** acting on the spring. Note, that the restoring force is ALWAYS in the opposite direction as the displacement of the spring.
+
+<figure style="margin:1.5rem 0;text-align:center"><img src="/images/shm-restoring-force.jpg" alt="Restoring force acting on the block" style="max-width:100%;border-radius:8px" /><figcaption style="margin-top:0.5rem;font-size:0.85rem;opacity:0.6">Restoring force acting on the block</figcaption></figure>
+
+By common sense, if we pull a spring in one direction, it will tend to go back to its original shape, that is the **restoring force** in the opposite direction. So, the direction is **opposite**.
+
+$$F = -kx$$
+
+Newton's second law tells us that $\Sigma F = ma$, and the acceleration is $\frac{d^2x}{dt^2}$, or simply $\ddot{x}$.
+
+$$\begin{aligned}
+\sum F_x &= m\ddot{x}, \\
+-kx &= m\ddot{x}, \\
+0 &= m\ddot{x} + kx.
+\end{aligned}$$
+
+This is the equation of motion we want to solve. Let's guess that the solution has the form $x = e^{rt}$ for some constant $r$, this is pretty common technique to solve a second order differential equation, by guessing the solution! Why can we guess that the solution is $x = e^{rt}$? Because:
+
+$$\frac{d}{dt}e^{rt} = re^{rt}, \qquad \frac{d^2}{dt^2}e^{rt} = r^2e^{rt}$$
+
+We can get the original function back when we differentiate it and when we substitute it back, and we get a simple quadratic!
+
+$$\begin{aligned}
+0 &= mr^2e^{rt} + ke^{rt}, \quad e^{rt} \neq 0 \\
+0 &= mr^2 + k, \\
+r^2 &= -\frac{k}{m}, \\
+r &= \pm\, i\sqrt{\frac{k}{m}}.
+\end{aligned}$$
+
+Note, that $\sqrt{-1} = i$ And here is where we get the familiar $\sqrt{\frac{k}{m}}$. A bunch of people decided that it would be cool to use $\omega$ lol so then they let $\omega = \sqrt{k/m}$. But the reason for this is so that we dont have many alphabets flying around so the roots are $r_1 = i\omega$ and $r_2 = -i\omega$. And therefore the solution to $x(t)$ is
+
+$$x(t) = C_1 e^{r_1 t} + C_2 e^{r_2 t} = C_1 e^{i\omega t} + C_2 e^{-i\omega t}$$
+
+**Wtf just happened?** Ok dw its because of something called the **Superposition Principle**. For a n-th order ordinary differential equation, the solution is $x(t) = C_1 x_1(t) + C_2 x_2(t) + \cdots + C_n x_n(t)$. But this is useless af because we only care about $n = 2$. So, using Euler's formula $e^{i\theta} = \cos\theta + i\sin\theta$:
+
+$$\begin{aligned}
+x(t) &= C_1 e^{i\omega t} + C_2 e^{-i\omega t} \\
+&= C_1\bigl(\cos(\omega t) + i\sin(\omega t)\bigr) + C_2\bigl(\cos(-\omega t) + i\sin(-\omega t)\bigr) \\
+&= (C_1 + C_2)\cos(\omega t) + i(C_1 - C_2)\sin(\omega t) \\
+&= A\cos(\omega t) + B\sin(\omega t),
+\end{aligned}$$
+
+where $A = C_1 + C_2$ and $B = i(C_1 - C_2)$, just for convenience. Now I want to express this as a single cosine with a phase. Let $R\cos(\theta + \alpha) = R\cos\theta\cos\alpha - R\sin\theta\sin\alpha \equiv A\cos(\omega t) + B\sin(\omega t)$, where $\theta = \omega t$. Then we compare the coefficients,
+
+$$\begin{cases} R\cos\alpha = A, \\ -R\sin\alpha = B. \end{cases}$$
+
+$R^2\cos^2\alpha + R^2\sin^2\alpha = A^2 + B^2$, so $R = \sqrt{A^2 + B^2}$. Dividing gives $\tan\alpha = -B/A$, so $\alpha = \tan^{-1}(-B/A)$. Therefore
+
+$$A\cos(\omega t) + B\sin(\omega t) = \sqrt{A^2+B^2}\,\cos\!\left(\omega t + \tan^{-1}\!\left(-\frac{B}{A}\right)\right)$$
+
+where the amplitude is $x_m = \sqrt{A^2+B^2}$ and the phase difference is $\varphi = \tan^{-1}(-B/A)$.
+
+$$\boxed{x(t) = x_m\cos(\omega t + \varphi), \quad \omega = \sqrt{\frac{k}{m}}}$$
+
+<figure style="margin:1.5rem 0;text-align:center"><img src="/images/shm-circle.png" alt="SHM as projection of uniform circular motion" style="max-width:100%;border-radius:8px" /><figcaption style="margin-top:0.5rem;font-size:0.85rem;opacity:0.6">SHM as the projection of uniform circular motion: as the dot rotates around the circle at angular frequency omega, its x-component traces out a cosine.</figcaption></figure>
+
+### Mechanical Energy
+
+$$E_{\text{total}} = \tfrac{1}{2}m\dot{x}^2 + \tfrac{1}{2}kx^2$$
+
+At maximum displacement $x = x_m$, the block is momentarily at rest, so all the energy is ur potential energy:
+
+$$\boxed{E_{\text{total}} = \tfrac{1}{2}kx_m^2}$$
+
+By common sense, this is the total energy at every instant.
+
+## Damped Oscillators
+
+Now we introduce some drag force, and we know that the drag force $\propto v$. We picture the same scenario again, this time with a more better drawn box, but with air resistance **NOT NEGLIGIBLE**.
+
+<figure style="margin:1.5rem 0;text-align:center"><img src="/images/damped-drag.jpg" alt="Drag force introduced" style="max-width:100%;border-radius:8px" /><figcaption style="margin-top:0.5rem;font-size:0.85rem;opacity:0.6">Drag force introduced :p</figcaption></figure>
+
+So, by Newton's second law again,
+
+$$\begin{aligned}
+\sum F_x &= -kx - b\dot{x}, \\
+0 &= m\ddot{x} + b\dot{x} + kx.
+\end{aligned}$$
+
+Again we guess $x = e^{rt}$ as the solution. Then $\ddot{x} = r^2e^{rt}$ and $\dot{x} = re^{rt}$, so
+
+$$\begin{aligned}
+0 &= mr^2e^{rt} + bre^{rt} + ke^{rt}, \quad e^{rt} \neq 0 \\
+0 &= mr^2 + br + k.
+\end{aligned}$$
+
+Using the quadratic formula,
+
+$$r = \frac{-b \pm \sqrt{b^2 - 4mk}}{2m} = -\frac{b}{2m} \pm \frac{\sqrt{b^2 - 4mk}}{2m}$$
+
+So $r_1 = -\frac{b}{2m} + \frac{\sqrt{b^2-4mk}}{2m}$ and $r_2 = -\frac{b}{2m} - \frac{\sqrt{b^2-4mk}}{2m}$. The discriminant $b^2 - 4mk$ gives us three scenarios.
+
+### Scenario 1: Overdamping ($b^2 > 4mk$)
+
+The discriminant is positive, so $r_1$ and $r_2$ are real. The solution to the differential equation is
+
+$$x(t) = C_1 e^{r_1 t} + C_2 e^{r_2 t}$$
+
+Just substitute $r_1$ and $r_2$ and we are done. No sines and cosines involved, because $r_1$ and $r_2$ are real (Euler's identity is not needed here).
+
+### Scenario 2: Critical Damping ($b^2 = 4mk$)
+
+The solution to the differential equation is $x(t) = C_1 e^{r_1 t} + C_2 e^{r_2 t}$ with $r_1 = r_2 = -b/(2m)$. Again, no sines and cosines are involved, as Euler's identity $e^{i\theta} = \cos\theta + i\sin\theta$ requires an imaginary $i\theta$ in the exponent.
+
+### Scenario 3: Underdamping ($b^2 < 4mk$)
+
+Now the discriminant is negative. We can rewrite
+
+$$r_1 = -\frac{b}{2m} + i\frac{\sqrt{4mk - b^2}}{2m}, \qquad r_2 = -\frac{b}{2m} - i\frac{\sqrt{4mk - b^2}}{2m}$$
+
+Then
+
+$$\begin{aligned}
+x(t) &= C_1 e^{\left(-\frac{b}{2m} + i\frac{\sqrt{4mk-b^2}}{2m}\right)t} + C_2 e^{\left(-\frac{b}{2m} - i\frac{\sqrt{4mk-b^2}}{2m}\right)t} \\
+&= e^{-\frac{b}{2m}t}\left(C_1 e^{i\frac{\sqrt{4mk-b^2}}{2m}t} + C_2 e^{-i\frac{\sqrt{4mk-b^2}}{2m}t}\right).
+\end{aligned}$$
+
+Notice the terms in the bracket are in the form $A\cos\omega' t + B\sin\omega' t$. It almost looks the same as the one we did just now. Use Euler's identity $e^{i\theta} = \cos\theta + i\sin\theta$, and by letting $\omega' = \sqrt{4mk - b^2}/(2m)$, you can try to do the whole "Let $R\cos(\theta + \alpha) = R\cos\theta\cos\alpha$" again urself and u will get the same thing:
+
+$$\begin{aligned}
+&C_1\bigl(\cos\omega' t + i\sin\omega' t\bigr) + C_2\bigl(\cos\omega' t - i\sin\omega' t\bigr) \\
+&\quad = (C_1 + C_2)\cos\omega' t + (C_1 - C_2)i\sin\omega' t \\
+&\quad = x_m\cos(\omega' t + \varphi),
+\end{aligned}$$
+
+which we have already proven in the previous section on SHM. So the solution to the differential equation is
+
+$$\boxed{x(t) = e^{-\frac{b}{2m}t}\,x_m\cos(\omega' t + \varphi), \quad \omega' = \frac{\sqrt{4mk - b^2}}{2m}}$$
+
+<figure style="margin:1.5rem 0;text-align:center"><img src="/images/damped-circle.png" alt="Underdamped motion" style="max-width:100%;border-radius:8px" /><figcaption style="margin-top:0.5rem;font-size:0.85rem;opacity:0.6">Underdamped motion: still cosine-like, but the amplitude decays as exp(-bt/2m). As the dot spirals inward on the left, the projection on the right oscillates within a shrinking window.</figcaption></figure>
+
+### Mechanical Energy
+
+For the underdamped case,
+
+$$x = e^{-\frac{b}{2m}t}\cos(\omega' t + \varphi)$$
+
+so the effective amplitude at time $t$ is
+
+$$x_m(t) = e^{-\frac{b}{2m}t}\,x_m$$
+
+where $-\frac{b}{2m}$ is the damping factor in the exponent. Therefore
+
+$$\boxed{E_{\text{total}} = \tfrac{1}{2}k\,e^{-\frac{b}{m}t}\,x_m^2}$$
+
+The energy decays at twice the rate of the amplitude, which makes sense because $E \propto x_m^2$ and squaring the exponential doubles the decay constant.\`
   }
 
 ]
