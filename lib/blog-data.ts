@@ -838,7 +838,7 @@ The energy decays at twice the rate of the amplitude, which makes sense because 
   {
     slug: "waves",
     title: "Waves",
-    excerpt: "From the wave equation to the Doppler effect and double-slit interference — a derivation-first guide to waves.",
+    excerpt: "Just a discussion about waves.",
     date: "2026-05-27",
     readTime: "18 min read",
     category: "Physics",
@@ -846,11 +846,28 @@ The energy decays at twice the rate of the amplitude, which makes sense because 
 
 For single oscillations, we are only keeping track of a single position that varies with time, that is $x(t)$. In the case of waves however, every single particle on the wave is oscillating. So each and every single particle has its own unique displacement from its equilibrium position (amplitude) at a given time, we call $\\psi(x, t)$. Now, we should first understand why there are 2 variables in $\\psi$. At every position, $x$, in a given time, $t$, every particle has its own unique displacement, $\\psi$.
 
+<figure>
+<img src="/images/IMG_0077.jpeg" alt="Transverse Wave" />
+<figcaption>Figure 1: Transverse Wave</figcaption>
+</figure>
+
 ## The Wave Equation
 
 Now that we know the relationship between time, position, and amplitude, we can begin to understand the motion of the wave. To find the motion of any object there is only one law we need: Newton's Second Law. I should note that I dislike the common formulation of $F = \\frac{dp}{dt}$, which is really the definition of impulsive force, not force in general. To me, force is generally given by mass times acceleration: $F = ma$ and idc what ur going to say lol
 
 Anyways, so we begin by considering a string that is tied at both ends. With its mass per unit lenght given by $\\mu$. When we pluck the string at any point it will begin to oscillate. We focus on a part of the string with length $dx$.
+
+<figure>
+<img src="/images/IMG_0078.jpeg" alt="String is plucked" />
+<figcaption>Figure 2: String is plucked</figcaption>
+</figure>
+
+If we look only at the small length of the string, $dx$,
+
+<figure>
+<img src="/images/IMG_0079.jpeg" alt="Unbalanced force on the small length of the string" />
+<figcaption>Figure 3: Unbalanced force on the small length of the string</figcaption>
+</figure>
 
 It is important to note that the tension has equal magnitude $T_0$ at both ends because it acts on the same string, but acts along slightly different directions, making angles $\\theta$ and $\\theta + d\\theta$ with the horizontal. So, by F=ma,
 
@@ -864,6 +881,11 @@ $$\\begin{aligned}
 T_0\\bigl[\\sin(\\theta + d\\theta) - \\sin\\theta\\bigr] &\\approx T_0(\\theta + d\\theta - \\theta) = \\mu\\,dx\\,\\frac{\\partial^2\\psi}{\\partial t^2} \\\\\\\\
 T_0\\,\\frac{d\\theta}{dx} &= \\mu\\,\\frac{\\partial^2\\psi}{\\partial t^2}
 \\end{aligned}$$
+
+<figure>
+<img src="/images/IMG_0080.jpeg" alt="Small angle approximation" />
+<figcaption>Figure 4</figcaption>
+</figure>
 
 And so we arrive at
 
@@ -891,9 +913,21 @@ solves the wave equation. With $\\xi = x - vt$, the chain rule gives $\\frac{\\p
 
 Remember that the solution to the wave equation is the wave function $\\psi(x, t) = A\\cos(kx - \\omega t)$ at $t = 0$, $\\psi(x, 0) = A\\cos(kx)$. Now, the cosine function will repeat itself when $kx$ is $2\\pi$. And we define the distance travelled by the wavefront to be $\\lambda$. So then, $k\\lambda = 2\\pi$
 
+<figure>
+<img src="/images/IMG_0082.jpeg" alt="Wavelength" />
+<figcaption>Figure 5: Wavelength</figcaption>
+</figure>
+
 $$k = \\frac{2\\pi}{\\lambda}$$
 
-Again for a fixed position at $x = 0$, $\\psi(0, t) = A\\cos(\\omega t)$. For the cosine function to undergo a revolution, we define the period to be $T$. So, $\\omega T = 2\\pi$
+Again for a fixed position at $x = 0$,
+
+<figure>
+<img src="/images/IMG_0081.jpeg" alt="Period" />
+<figcaption>Figure 6</figcaption>
+</figure>
+
+$\\psi(0, t) = A\\cos(\\omega t)$. For the cosine function to undergo a revolution, we define the period to be $T$. So, $\\omega T = 2\\pi$
 
 $$\\omega = \\frac{2\\pi}{T} = 2\\pi f$$
 
@@ -929,9 +963,19 @@ with $v$ being the speed of the travelling wave.
 
 The wave speed in the medium is fixed and does not depend on the motion of source or observer. Doppler shifts arise from two distinct mechanisms: a moving source compresses or stretches the wavelengths it emits, and a moving observer encounters wavefronts at a relative speed different from $v$. Let $f$ be the emitted frequency, with its wavelength being $\\lambda$, $f'$ the observed frequency, with the observed wavelength being $\\lambda'$, $v_s$ the source speed (toward the observer), and $v_o$ the observer speed (toward the source). Now, pretend that there is nothing happening and the source is stationary.
 
+<figure>
+<img src="/images/IMG_0083.jpeg" alt="Stationary source" />
+<figcaption>Figure 7: Stationary source</figcaption>
+</figure>
+
 ### Scenario 1: Source moves towards or away from the observer
 
 When the source is moving, the wavelength is being compressed or stretched. The source emits one wavefront per period $T = 1/f$. So the time difference between 2 successive waves is always $T$. In that time the source advances by $v_s T$ toward the observer, or $v_s T$ away from the observer. So the wavelengths in the medium ahead of the source are compressed to $\\lambda' = (v - v_s)T$, or $\\lambda' = (v + v_s)T$.
+
+<figure>
+<img src="/images/IMG_0085.jpeg" alt="Source moving towards or away from observer" />
+<figcaption>Figure 8: Source moving towards or away from observer</figcaption>
+</figure>
 
 Keep in mind that $v = f\\lambda$ and the speed of the wave is medium-dependent and NOT dependent on the source. Hence the speed observed, $v'$ is just the speed of sound $v$,
 
@@ -942,6 +986,11 @@ $$f' = f \\cdot \\frac{v}{v \\mp v_s}$$
 The intuition here is when the source is moving toward the observer, the frequency observed is larger because the denominator is $v - v_s$. And when the source moves away from the observer, the frequency observed is smaller.
 
 ### Scenario 2: Stationary source and moving observer
+
+<figure>
+<img src="/images/IMG_0087.jpeg" alt="Stationary source and moving observer" />
+<figcaption>Figure 9: Stationary source and moving observer</figcaption>
+</figure>
 
 The speed observed, $v'$ in this case is different. The observed speed is now $v + v_o$, from the observers perspective he is running into the waves so he sees the waves coming to him at $v + v_o$. And since the source is not moving, the waves are not compressed so there is no change in observed wavelength $\\lambda'$.
 
@@ -977,6 +1026,11 @@ $$\\psi = 2A\\cos\\!\\left(\\frac{k_1 - k_2}{2}x - \\frac{\\omega_1 - \\omega_2}
 
 Which looks the same, because what matters to us is the coefficient of $t$, which determines the beats of a wave. So we choose to drop the $kx$ term.
 
+<figure>
+<img src="/images/IMG_0088.jpeg" alt="Beats" />
+<figcaption>Figure 10</figcaption>
+</figure>
+
 For $\\omega_1 = \\omega_2$, this reduces to $2A\\cos(\\omega t)$, because the 2 cosine waves simply overlap and there is constructive interference, the amplitude of the wave is doubled. For $\\omega_1 \\approx \\omega_2$, the shape of the blue cosine wave will be oscillating like crazy because $\\omega_1 + \\omega_2$ is relatively much larger.
 
 $$\\psi = 2A\\cos\\!\\left(\\frac{\\omega_1 - \\omega_2}{2}t\\right)\\cdot\\cos\\!\\left(\\frac{\\omega_1 + \\omega_2}{2}t\\right)$$
@@ -990,6 +1044,11 @@ Which gives
 $$\\omega_b = \\omega_1 - \\omega_2$$
 
 ## Double-slit interference
+
+<figure>
+<img src="/images/IMG_0089.jpeg" alt="Double-slit interference setup" />
+<figcaption>Figure 11</figcaption>
+</figure>
 
 Two coherent point sources separated by distance $d$ illuminate a screen at perpendicular distance $D$. Let $x$, $x'$ be the path lengths from the two sources to a point $P$ on the screen. The waves at $P$ are
 
@@ -1024,11 +1083,21 @@ $$2A\\cos\\!\\left(\\frac{\\pi \\cdot \\frac{1}{2}\\lambda}{\\lambda}\\right) = 
 
 so $\\psi_{1+2} = 0$. A minima is formed! So you can generalise yourself that for constructive interference to occur, the path difference is $n\\lambda$ $n = 0, 1, 2, 3...$ and for destructive interference to occur the path difference is $\\left(n + \\frac{1}{2}\\right)\\lambda$.
 
+<figure>
+<img src="/images/IMG_0090.jpeg" alt="Path difference geometry" />
+<figcaption>Figure 12</figcaption>
+</figure>
+
 Let $d$ be distance of slit seperation,
 
 $$d\\sin\\theta = x - x' = n\\lambda \\quad \\text{or} \\quad \\left(n + \\frac{1}{2}\\right)\\lambda$$
 
 For $n = 0, 1, 2, ....$
+
+<figure>
+<img src="/images/IMG_0091.jpeg" alt="Fringe pattern" />
+<figcaption>Figure 13</figcaption>
+</figure>
 
 For small angles, $\\sin\\theta \\approx \\tan\\theta = \\frac{D}{L}$, since $D$ is the distance from centra bright fringe to first order minima, $n = \\frac{1}{2}$.
 
