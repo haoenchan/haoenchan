@@ -834,6 +834,213 @@ where $-\\frac{b}{2m}$ is the damping factor in the exponent. Therefore
 $$\\boxed{E_{\\text{total}} = \\tfrac{1}{2}k\\,e^{-\\frac{b}{m}t}\\,x_m^2}$$
 
 The energy decays at twice the rate of the amplitude, which makes sense because $E \\propto x_m^2$ and squaring the exponential doubles the decay constant.`
+  },
+  {
+    slug: "waves",
+    title: "Waves",
+    excerpt: "From the wave equation to the Doppler effect and double-slit interference — a derivation-first guide to waves.",
+    date: "2026-05-27",
+    readTime: "18 min read",
+    category: "Physics",
+    content: `## A Wave Function
+
+For single oscillations, we are only keeping track of a single position that varies with time, that is $x(t)$. In the case of waves however, every single particle on the wave is oscillating. So each and every single particle has its own unique displacement from its equilibrium position (amplitude) at a given time, we call $\\psi(x, t)$. Now, we should first understand why there are 2 variables in $\\psi$. At every position, $x$, in a given time, $t$, every particle has its own unique amplitude, $\\psi$.
+
+## The Wave Equation
+
+Now that we know the relationship between time, position, and amplitude, we can begin to understand the motion of the wave. To find the motion of any object there is only one law we need: Newton's Second Law. I should note that I dislike the common formulation of $F = \\frac{dp}{dt}$, which is really the definition of impulsive force, not force in general. To me, force is generally given by mass times acceleration: $F = ma$ and idc what ur going to say lol
+
+Anyways, so we begin by considering a string that is tied at both ends. With its mass per unit lenght given by $\\mu$. When we pluck the string at any point it will begin to oscillate. We focus on a part of the string with length $dx$.
+
+It is important to note that the tension has equal magnitude $T_0$ at both ends because it acts on the same string, but acts along slightly different directions, making angles $\\theta$ and $\\theta + d\\theta$ with the horizontal. So, by F=ma,
+
+$$T_0\\bigl[\\sin(\\theta + d\\theta) - \\sin\\theta\\bigr] = \\mu\\,dx\\,\\frac{\\partial^2\\psi}{\\partial t^2}$$
+
+Now you might wonder why is the acceleration given by $\\frac{\\partial^2\\psi}{\\partial t^2}$, the reason is because $\\psi$ is your vertical displacement from the equilibrium position, and since the particle is oscillating up and down, its acceleration, or its second derivative with respect to time is $\\frac{\\partial^2\\psi}{\\partial t^2}$. Note that the weird sign that looks like a inverted 6 is actually the partial derivative. There are two variables in $\\psi(x, t)$ so we have to use the partial derivative to differentiate with respect to time $t$.
+
+For small displacements, $\\sin\\theta \\approx \\theta \\approx \\tan\\theta = \\frac{\\partial\\psi}{\\partial x}$,
+
+$$\\begin{aligned}
+T_0\\bigl[\\sin(\\theta + d\\theta) - \\sin\\theta\\bigr] &\\approx T_0(\\theta + d\\theta - \\theta) = \\mu\\,dx\\,\\frac{\\partial^2\\psi}{\\partial t^2} \\\\\\\\
+T_0\\,\\frac{d\\theta}{dx} &= \\mu\\,\\frac{\\partial^2\\psi}{\\partial t^2}
+\\end{aligned}$$
+
+And so we arrive at
+
+$$\\frac{\\partial^2\\psi}{\\partial x^2} = \\frac{\\mu}{T_0}\\frac{\\partial^2\\psi}{\\partial t^2}$$
+
+Something to note here is that the dimensions of $\\frac{\\mu}{T_0}$ is
+
+$$\\frac{\\mu}{T_0} = \\frac{[\\text{kg/m}]}{[\\text{N}]} = \\frac{[\\text{kg}\\cdot\\text{m}^{-1}]}{[\\text{kg}\\cdot\\text{m}\\cdot\\text{s}^{-2}]} = [\\text{m}^{-2}\\cdot\\text{s}^2]$$
+
+which can be the dimension of $\\frac{1}{v^2}$. And so $\\frac{\\partial^2\\psi}{\\partial x^2} = \\frac{1}{v^2}\\frac{\\partial^2\\psi}{\\partial t^2}$. What is $v$? how can i make such a claim that it is the speed of the wave?
+
+## Solution to the wave equation
+
+The solution to the wave equation is the wave function $\\psi(x, t) = A\\cos(kx - \\omega t)$. And this is something that i have to memorise without knowing how to derive it unfortunately for my level. I dont have the math to show how yet but we can verify that this is the solution by differentiating twice gives $\\frac{\\partial^2\\psi}{\\partial t^2} = -\\omega^2\\psi$ and $\\frac{\\partial^2\\psi}{\\partial x^2} = -k^2\\psi$, so the wave equation reduces to
+
+$$\\omega^2 = \\frac{T_0}{\\mu}k^2 \\implies \\frac{\\omega}{k} = \\sqrt{\\frac{T_0}{\\mu}} \\equiv v$$
+
+We rewrite the sinusoidal solution as $\\psi(x, t) = A\\cos(k(x - vt))$. The dependence on $x$ and $t$ enters only through the combination $x - vt$. This generalises: for any twice-differentiable $F$,
+
+$$\\psi(x, t) = F(x - vt)$$
+
+solves the wave equation. With $\\xi = x - vt$, the chain rule gives $\\frac{\\partial^2\\psi}{\\partial x^2} = F''(\\xi)$ and $\\frac{\\partial^2\\psi}{\\partial t^2} = v^2 F''(\\xi)$, and the two sides of the wave equation agree. Physically, $F(x - v\\,\\delta t)$ is the shape $F(x)$ shifted to the right by $v\\,\\delta t$. (That is called the horizontal translation you learnt in maths in the functions chapter). And so because the wave shifts a distance of $v\\delta t$ in a time $\\delta t$ we can finally say that $v$ is the speed of the wave.
+
+## Deriving $v = f\\lambda$
+
+Remember that the solution to the wave equation is the wave function $\\psi(x, t) = A\\cos(kx - \\omega t)$ at $t = 0$, $\\psi(x, 0) = A\\cos(kx)$. Now, the cosine function will repeat itself when $kx$ is $2\\pi$. And we define the distance travelled by the wavefront to be $\\lambda$. So then, $k\\lambda = 2\\pi$
+
+$$k = \\frac{2\\pi}{\\lambda}$$
+
+Again for a fixed position at $x = 0$, $\\psi(0, t) = A\\cos(\\omega t)$. For the cosine function to undergo a revolution, we define the period to be $T$. So, $\\omega T = 2\\pi$
+
+$$\\omega = \\frac{2\\pi}{T} = 2\\pi f$$
+
+By $\\omega = kv$,
+
+$$v = f\\lambda$$
+
+## Energy and power
+
+The kinetic energy of a string segment of mass $dm = \\mu\\,dx$, where $\\mu$ is the mass per unit length. The velocity in the vertical direction of the wave particles is given by $\\frac{\\partial\\psi}{\\partial t} = -\\psi_m\\omega\\sin(kx - \\omega t)$. So, the kinetic energy waries with position and time as follows:
+
+$$dK = \\frac{1}{2}\\mu\\,dx\\,\\psi_m^2\\omega^2\\sin^2(kx - \\omega t)$$
+
+Now, the wave particles move at maximum velocity when it passes through the origin. Remember that
+
+$$\\begin{aligned}
+KE_{\\max} &= PE_{\\max} \\\\\\\\
+\\frac{1}{2}mv_{\\max}^2 &= \\frac{1}{2}k_0\\psi_{\\max}^2 \\\\\\\\
+v_{\\max} &= \\sqrt{\\frac{k}{m}}\\,\\psi_m = \\omega\\psi_m
+\\end{aligned}$$
+
+Where $\\psi_m$ is the maximum displacement from the equilibrium position. So, the total energy is
+
+$$E = \\frac{1}{2}\\mu\\,dx\\,\\psi_m^2\\omega^2$$
+
+So,
+
+$$P = \\frac{1}{2}\\mu v\\psi_m^2\\omega^2$$
+
+with $v$ being the speed of the travelling wave.
+
+## The Doppler Effect
+
+The wave speed in the medium is fixed and does not depend on the motion of source or observer. Doppler shifts arise from two distinct mechanisms: a moving source compresses or stretches the wavelengths it emits, and a moving observer encounters wavefronts at a relative speed different from $v$. Let $f$ be the emitted frequency, with its wavelength being $\\lambda$, $f'$ the observed frequency, with the observed wavelength being $\\lambda'$, $v_s$ the source speed (toward the observer), and $v_o$ the observer speed (toward the source). Now, pretend that there is nothing happening and the source is stationary.
+
+### Scenario 1: Source moves towards or away from the observer
+
+When the source is moving, the wavelength is being compressed or stretched. The source emits one wavefront per period $T = 1/f$. So the time difference between 2 successive waves is always $T$. In that time the source advances by $v_s T$ toward the observer, or $v_s T$ away from the observer. So the wavelengths in the medium ahead of the source are compressed to $\\lambda' = (v - v_s)T$, or $\\lambda' = (v + v_s)T$.
+
+Keep in mind that $v = f\\lambda$ and the speed of the wave is medium-dependent and NOT dependent on the source. Hence the speed observed, $v'$ is just the speed of sound $v$,
+
+$$\\frac{v'}{\\lambda'} = f'$$
+
+$$f' = f \\cdot \\frac{v}{v \\mp v_s}$$
+
+The intuition here is when the source is moving toward the observer, the frequency observed is larger because the denominator is $v - v_s$. And when the source moves away from the observer, the frequency observed is smaller.
+
+### Scenario 2: Stationary source and moving observer
+
+The speed observed, $v'$ in this case is different. The observed speed is now $v + v_o$, from the observers perspective he is running into the waves so he sees the waves coming to him at $v + v_o$. And since the source is not moving, the waves are not compressed so there is no change in observed wavelength $\\lambda'$.
+
+$$\\frac{v'}{\\lambda'} = f'$$
+
+$$f' = f\\frac{v + v_o}{v}$$
+
+And again, if the observer can also move in the other direction so
+
+$$f' = f\\frac{v \\pm v_o}{v}$$
+
+### Scenario 3: Moving source and moving observer
+
+This is just a combination of the 2 cases which we discussed. So the observed speed is $v' = v \\pm v_o$ and the observed wavelength is $\\lambda' = \\lambda \\mp v_s T$ and so
+
+$$f' = f\\frac{v \\pm v_o}{v \\mp v_s}$$
+
+## Superposition and beats
+
+Recall that $\\psi(x, t) = A\\cos(kx - \\omega t)$. If we just want to a look at a fixed point, this makes the $kx$ term is fixed, which means that the cosine does not start from the origin. Assuming that the two waves are in-phase, we can drop the term $kx$ because the phase difference is constant, two waves of equal amplitude and nearby frequencies, $\\omega_1 \\approx \\omega_2$ arrive with:
+
+$$\\psi_1 = A\\cos(\\omega_1 t), \\quad \\psi_2 = A\\cos(\\omega_2 t)$$
+
+So
+
+$$\\psi = \\psi_1 + \\psi_2 = 2A\\cos\\!\\left(\\frac{\\omega_1 - \\omega_2}{2}t\\right)\\cos\\!\\left(\\frac{\\omega_1 + \\omega_2}{2}t\\right)$$
+
+If we dont drop the $kx$ term, it would look like
+
+$$\\psi_1 = A\\cos(k_1 x - \\omega_1 t), \\quad \\psi_2 = A\\cos(k_2 x - \\omega_2 t)$$
+
+$$\\psi = 2A\\cos\\!\\left(\\frac{k_1 - k_2}{2}x - \\frac{\\omega_1 - \\omega_2}{2}t\\right)\\cos\\!\\left(\\frac{k_1 + k_2}{2}x - \\frac{\\omega_1 + \\omega_2}{2}t\\right)$$
+
+Which looks the same, because what matters to us is the coefficient of $t$, which determines the beats of a wave. So we choose to drop the $kx$ term.
+
+For $\\omega_1 = \\omega_2$, this reduces to $2A\\cos(\\omega t)$, because the 2 cosine waves simply overlap and there is constructive interference, the amplitude of the wave is doubled. For $\\omega_1 \\approx \\omega_2$, the shape of the blue cosine wave will be oscillating like crazy because $\\omega_1 + \\omega_2$ is relatively much larger.
+
+$$\\psi = 2A\\cos\\!\\left(\\frac{\\omega_1 - \\omega_2}{2}t\\right)\\cdot\\cos\\!\\left(\\frac{\\omega_1 + \\omega_2}{2}t\\right)$$
+
+Now, we have to note that the sound we are hearing does not care wether or not the amplitude is negative or positive. Our ears cannot tell the difference between the negative and positive amplitude. So, the period between 2 sucessive loud sounds heard is just half the period originally, at every $t = 0, \\pi, 2\\pi...$. We can use our eyes and observe the graph and see that the shape of the resultant wave is determined by $\\cos\\!\\left(\\frac{\\omega_1 - \\omega_2}{2}t\\right)$, for which every period is now $\\pi$ instead of $2\\pi$. And so, the period is
+
+$$T = \\frac{\\pi}{\\dfrac{\\omega_1 - \\omega_2}{2}} = \\frac{2\\pi}{\\omega_1 - \\omega_2}$$
+
+Which gives
+
+$$\\omega_b = \\omega_1 - \\omega_2$$
+
+## Double-slit interference
+
+Two coherent point sources separated by distance $d$ illuminate a screen at perpendicular distance $D$. Let $x$, $x'$ be the path lengths from the two sources to a point $P$ on the screen. The waves at $P$ are
+
+$$\\psi_1 = A\\cos(kx - \\omega t), \\quad \\psi_2 = A\\cos(kx' - \\omega t)$$
+
+Now at a fixed point, we call $P$, we only care about $t$ and the $kx$ term is the phase. So, the phase difference we call $\\Delta\\phi$
+
+$$\\Delta\\phi = k(x' - x) = \\frac{2\\pi}{\\lambda}(x' - x)$$
+
+The path difference and the phase difference is therefore related by:
+
+$$\\Delta\\phi = k(x' - x) = \\frac{2\\pi}{\\lambda}(x' - x)$$
+
+Now, we look back at point $P$, the superposition principle tells us that the resultant displacement $\\psi_{1+2}$ is the vector sum of each individual displacement of each waves $\\psi_1$ and $\\psi_2$. So,
+
+$$\\begin{aligned}
+\\psi_{1+2} &= A\\cos(kx - \\omega t) + A\\cos(kx' - \\omega t) \\\\\\\\
+&= 2A\\cos\\!\\left(\\frac{k(x' - x)}{2}\\right)\\cos\\!\\left(\\frac{k(x + x')}{2} - \\omega t\\right)
+\\end{aligned}$$
+
+Remember that $k = \\frac{2\\pi}{\\lambda}$, so
+
+$$\\psi_{1+2} = 2A\\cos\\!\\left(\\frac{\\pi(x' - x)}{\\lambda}\\right)\\cos\\!\\left(\\frac{\\pi(x + x')}{\\lambda} - \\omega t\\right)$$
+
+When the path difference is $x' - x = \\lambda$,
+
+$$\\psi_{1+2} = -2A\\cos\\!\\left(\\frac{\\pi(x + x')}{\\lambda} - \\omega t\\right)$$
+
+The amplitude is $2A$, which is a maxima. When the path difference is $x' - x = \\frac{1}{2}\\lambda$,
+
+$$2A\\cos\\!\\left(\\frac{\\pi \\cdot \\frac{1}{2}\\lambda}{\\lambda}\\right) = 2A\\cos\\!\\left(\\frac{\\pi}{2}\\right) = 0$$
+
+so $\\psi_{1+2} = 0$. A minima is formed! So you can generalise yourself that for constructive interference to occur, the path difference is $n\\lambda$ $n = 0, 1, 2, 3...$ and for destructive interference to occur the path difference is $\\left(n + \\frac{1}{2}\\right)\\lambda$.
+
+Let $d$ be distance of slit seperation,
+
+$$d\\sin\\theta = x - x' = n\\lambda \\quad \\text{or} \\quad \\left(n + \\frac{1}{2}\\right)\\lambda$$
+
+For $n = 0, 1, 2, ....$
+
+For small angles, $\\sin\\theta \\approx \\tan\\theta = \\frac{D}{L}$, since $D$ is the distance from centra bright fringe to first order minima, $n = \\frac{1}{2}$.
+
+$$\\frac{dD}{L} = \\frac{\\lambda}{2}$$
+
+$$\\lambda = \\frac{2dD}{L}$$
+
+and $2D$ is the distance between two successive dark fringe or bright fringe, ill call it $x$ and here,
+
+$$\\lambda = \\frac{xd}{L}$$
+
+where $d$ is the distance of the slit seperation and $L$ is the distance from the slit to the screen, $x$ is the distance between two successive bright or dark fringes.`
   }
 
 ]
