@@ -844,7 +844,7 @@ The energy decays at twice the rate of the amplitude, which makes sense because 
     category: "Physics",
     content: `## A Wave Function
 
-For single oscillations, we are only keeping track of a single position that varies with time, that is $x(t)$. In the case of waves however, every single particle on the wave is oscillating. So each and every single particle has its own unique displacement from its equilibrium position (amplitude) at a given time, we call $\\psi(x, t)$. Now, we should first understand why there are 2 variables in $\\psi$. At every position, $x$, in a given time, $t$, every particle has its own unique amplitude, $\\psi$.
+For single oscillations, we are only keeping track of a single position that varies with time, that is $x(t)$. In the case of waves however, every single particle on the wave is oscillating. So each and every single particle has its own unique displacement from its equilibrium position (amplitude) at a given time, we call $\\psi(x, t)$. Now, we should first understand why there are 2 variables in $\\psi$. At every position, $x$, in a given time, $t$, every particle has its own unique displacement, $\\psi$.
 
 ## The Wave Equation
 
