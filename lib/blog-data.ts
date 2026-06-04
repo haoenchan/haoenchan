@@ -1100,6 +1100,380 @@ and $2D$ is the distance between two successive dark fringe or bright fringe, il
 $$\\lambda = \\frac{xd}{L}$$
 
 where $d$ is the distance of the slit seperation and $L$ is the distance from the slit to the screen, $x$ is the distance between two successive bright or dark fringes.`
+  },
+  {
+    slug: "bpho-2025-round-2-solutions",
+    title: "British Physics Olympiad 2025 Round 2 Solutions",
+    excerpt: "My worked solutions to the 2025 British Physics Olympiad Round 2 paper.",
+    date: "2026-06-04",
+    readTime: "20 min read",
+    category: "Physics",
+    content: `The problem statements for these solutions can be found here: <a href="https://www.bpho.org.uk/Papers/R2/" target="_blank" rel="noopener noreferrer">https://www.bpho.org.uk/Papers/R2/</a>
+
+## Problem 1 General Questions
+
+### (a)
+
+**Solution.** So we've got a rope of length $L = 1.0$ m, linear density $\\mu = m/L$, with half of it ($L/2$) hanging off a frictionless table at $t = 0$. Let $x(t)$ be the length currently hanging. Because the rope is inextensible the whole thing moves with one speed $v = \\dot{x}$.
+
+Energy conservation between $t = 0$ (everything at rest, $x_0 = L/2$) and the moment the last bit leaves the table ($x = L$):
+
+$$\\begin{aligned}
+\\tfrac{1}{2}mv^2 &= U(x_0) - U(L) \\\\
+&= -\\mu g\\frac{x_0^2}{2} - \\left(-\\mu g\\frac{L^2}{2}\\right) \\\\
+&= \\frac{\\mu g}{2}(L^2 - x_0^2).
+\\end{aligned}$$
+
+Here I took the table top as the zero of PE, and the hanging segment of length $x$ has its centre of mass at depth $x/2$, so $U(x) = -\\mu x \\cdot g \\cdot x/2 = -\\mu g x^2/2$. So,
+
+$$v^2 = \\frac{g}{L}\\left(L^2 - x_0^2\\right) = gL\\left(1 - \\tfrac{1}{4}\\right) = \\tfrac{3}{4}gL.$$
+
+$$v = \\sqrt{\\tfrac{3}{4}gL} = 2.7\\ \\text{m s}^{-1}.$$
+
+### (b)
+
+**Solution.**
+
+<figure>
+<img src="/images/bpho-r2-tower.jpg" alt="Idealised tower" />
+<figcaption>Figure 1: Idealised tower &mdash; <a href="https://www.bpho.org.uk/Papers/R2/" target="_blank" rel="noopener noreferrer">view the problems</a></figcaption>
+</figure>
+
+Idealise the tower as a solid right cylinder of height $h$, diameter $d$, density $\\rho_s$. It topples by pivoting about the downwind base edge. The wind force $F = \\rho A v^2$ acts at height $h/2$ (line of action through the centre of the projected rectangle $A = hd$), and the weight $W = \\rho_s \\pi (d/2)^2 h g$ acts through the centre of mass, a horizontal distance $d/2$ from the pivot.
+
+And so in order to get the speed when it is about to topple, set it at $\\sum\\tau = 0$
+
+$$\\rho hd\\, v^2 \\cdot \\frac{h}{2} = \\rho_s \\pi \\left(\\frac{d}{2}\\right)^2 hg \\cdot \\frac{d}{2}.$$
+
+Sub the values into
+
+$$v^2 = \\frac{\\rho_s \\pi d^2 g}{4\\rho h}.$$
+
+$$v^2 = \\frac{3000 \\cdot \\pi \\cdot 7.5^2 \\cdot 9.81}{4 \\cdot 1.3 \\cdot 37} = 2.70 \\times 10^4\\ \\text{m}^2\\,\\text{s}^{-2},$$
+
+$$v = 1.6 \\times 10^2\\ \\text{m s}^{-1}$$
+
+**Shape comment.** For the real monument, the area is smaller at the top, where the wind provides the largest amount of torque. So it should provide lesser amount of torque as compared to a cylinder with uniform diameter.
+
+### (c)
+
+**Solution.**
+
+(i) Rubber bung: $m = 25$ g $= 0.025$ kg, $r = 0.50$ m, $f = 4.0$ Hz. Speed $v = 2\\pi r f$, momentum $p = mv$, and the string is the radius vector, so
+
+$$L = rp = mrv = 2\\pi m r^2 f = 2\\pi(0.025)(0.50)^2(4.0) = 0.16\\ \\text{kg m}^2\\,\\text{s}^{-1}.$$
+
+(ii) By $I = mr^2$ and $\\omega = v/r$, so
+
+$$L_{\\text{spin}} = I\\omega = mrv = 1.3 \\cdot 0.31 \\cdot 12 = 4.8\\ \\text{kg m}^2\\,\\text{s}^{-1}.$$
+
+(iii) $r_i = i\\ell/N$ from the pivot, $i = 1, \\ldots, N$. Particle $i$ has speed $r_i\\omega$ and moves perpendicular to its radius vector, so its angular momentum about the pivot is $(M/N)(r_i\\omega)r_i$.
+
+$$\\begin{aligned}
+L_N &= \\sum_{i=1}^{N}\\frac{M}{N}\\left(\\frac{i\\ell}{N}\\right)^2\\omega = \\frac{M\\ell^2\\omega}{N^3}\\sum_{i=1}^{N}i^2 \\\\
+&= \\frac{M\\ell^2\\omega}{N^3}\\cdot\\frac{N(N+1)(2N+1)}{6} = \\frac{M\\ell^2\\omega}{6}\\cdot\\frac{(N+1)(2N+1)}{N^2}.
+\\end{aligned}$$
+
+(iv) As $N \\to \\infty$, $(N+1)(2N+1)/N^2 \\to 2$, so
+
+$$L = \\tfrac{1}{3}M\\ell^2\\omega.$$
+
+The $i$th bead has KE $= \\tfrac{1}{2}(M/N)(r_i\\omega)^2$:
+
+$$\\sum_{i=1}^{N}\\frac{M\\omega^2}{2N}\\left(\\frac{i\\ell}{N}\\right)^2 = \\frac{M\\ell^2\\omega^2}{2N^3}\\sum_{i=1}^{N}i^2 = \\tfrac{1}{6}M\\ell^2\\omega^2, \\quad \\text{as } N \\to \\infty$$
+
+## Problem 2 Random Walks
+
+### (a)
+
+**Solution.** From kinetic theory, $\\tfrac{1}{2}m\\langle v^2\\rangle = \\tfrac{3}{2}kT$, so per mole $\\tfrac{1}{2}M_R\\langle v^2\\rangle = \\tfrac{3}{2}RT$ and
+
+$$v_{\\text{rms}} = \\sqrt{\\frac{3RT}{M_R}} = \\sqrt{\\frac{3 \\cdot 8.31 \\cdot 293}{0.028}} = 510\\ \\text{m s}^{-1}$$
+
+(you should know that the room temperature is about $T = 293$ K).
+
+### (b)
+
+**Solution.** Total mass is $N \\times$ (mass per particle) $= N \\cdot M_R/N_A$. So
+
+$$\\rho = \\frac{N M_R}{N_A V}.$$
+
+Rearranging for the average volume per particle,
+
+$$\\frac{V}{N} = \\frac{M_R}{N_A \\rho}.$$
+
+### (c)
+
+**Solution.** Assumption: in the liquid, molecules are essentially touching each one occupies a cube of side $d$. Then
+
+$$d = \\left(\\frac{V}{N}\\right)^{1/3} = \\left(\\frac{M_R}{N_A \\rho}\\right)^{1/3} = \\left(\\frac{0.028}{6.022 \\times 10^{23} \\cdot 807}\\right)^{1/3}.$$
+
+$V/N = 5.77 \\times 10^{-29}$ m$^3$, so
+
+$$d = 3.9 \\times 10^{-10}\\ \\text{m} = 0.39\\ \\text{nm}.$$
+
+### (d)
+
+**Solution.** The gas number density is
+
+$$\\frac{N}{V} = \\frac{p}{kT} = \\frac{1.01 \\times 10^5}{(1.38 \\times 10^{-23})(293)} = 2.50 \\times 10^{25}\\ \\text{m}^{-3}.$$
+
+The mean free path is
+
+$$\\lambda = \\frac{1}{\\sqrt{2}\\,\\pi d^2 (N/V)} = \\frac{1}{\\sqrt{2}\\,\\pi (3.9 \\times 10^{-10})^2 (2.50 \\times 10^{25})} = 6.0 \\times 10^{-8}\\ \\text{m}.$$
+
+So the collision time is
+
+$$\\Delta t = \\frac{\\lambda}{v_{\\text{rms}}} = \\frac{6.0 \\times 10^{-8}}{511} = 1.2 \\times 10^{-10}\\ \\text{s}.$$
+
+### (e)
+
+**Solution.** After collision $i$ the molecule travels at speed $v$ in the direction set by $\\varphi_i$:
+
+$$\\mathbf{v}_i = v(\\cos\\varphi_i\\,\\hat{x} + \\sin\\varphi_i\\,\\hat{y}).$$
+
+### (f)
+
+**Solution.** Between collisions $i$ and $i+1$ the molecule moves in a straight line for time $\\Delta t$ at velocity $\\mathbf{v}_i$, giving a displacement $\\mathbf{v}_i\\Delta t$. Total displacement after $M$ collisions is the sum of these straight segments:
+
+$$\\mathbf{r}(t) = \\sum_{i=1}^{M}\\mathbf{v}_i\\,\\Delta t.$$
+
+### (g)
+
+**Solution.** Take the average over many such walks. So $\\langle\\cos\\varphi_i\\rangle = \\langle\\sin\\varphi_i\\rangle = 0$, giving $\\langle\\mathbf{v}_i\\rangle = 0$. So,
+
+$$\\langle\\mathbf{r}(t)\\rangle = \\Delta t\\sum_{i=1}^{M}\\langle\\mathbf{v}_i\\rangle = 0.$$
+
+Note, that the expected value is zero because
+
+$$\\begin{aligned}
+\\langle\\cos\\varphi_i\\rangle &= \\frac{1}{2\\pi}\\int_0^{2\\pi}\\cos\\varphi\\,d\\varphi = \\frac{1}{2\\pi}\\big[\\sin\\varphi\\big]_0^{2\\pi} = \\frac{1}{2\\pi}(0 - 0) = 0, \\\\
+\\langle\\sin\\varphi_i\\rangle &= \\frac{1}{2\\pi}\\int_0^{2\\pi}\\sin\\varphi\\,d\\varphi = \\frac{1}{2\\pi}\\big[-\\cos\\varphi\\big]_0^{2\\pi} = \\frac{1}{2\\pi}(-1 - (-1)) = 0.
+\\end{aligned}$$
+
+### (h)
+
+**Solution.** The mean displacement is zero, so we look at the second moment $\\langle\\mathbf{r}\\cdot\\mathbf{r}\\rangle$:
+
+$$\\langle\\mathbf{r}\\cdot\\mathbf{r}\\rangle = (\\Delta t)^2\\sum_{i=1}^{M}\\sum_{j=1}^{M}\\langle\\mathbf{v}_i\\cdot\\mathbf{v}_j\\rangle.$$
+
+For $i = j$, $\\mathbf{v}_i\\cdot\\mathbf{v}_i = v^2$. For $i \\neq j$, $\\langle\\mathbf{v}_i\\cdot\\mathbf{v}_j\\rangle = v^2\\langle\\cos(\\varphi_i - \\varphi_j)\\rangle = 0$ because $\\varphi_i, \\varphi_j$ are independent and uniform. So only the diagonal survives:
+
+$$\\langle r^2\\rangle = Mv^2(\\Delta t)^2 \\implies r_{\\text{rms}} = v\\,\\Delta t\\sqrt{M} = \\lambda\\sqrt{M}.$$
+
+### (i)
+
+**Solution.** Same expression in 3D (the cross terms still vanish since unit vectors on the sphere average to zero). Setting $r_{\\text{rms}} = 5.00$ m,
+
+$$M = \\left(\\frac{r_{\\text{rms}}}{\\lambda}\\right)^2 = \\left(\\frac{5.00}{6.0 \\times 10^{-8}}\\right)^2 = 6.9 \\times 10^{15}\\ \\text{collisions}.$$
+
+The total time is then
+
+$$t = M\\,\\Delta t = (6.9 \\times 10^{15})(1.2 \\times 10^{-10}) = 8.3 \\times 10^5\\ \\text{s} = 9.6\\ \\text{days}.$$
+
+## Problem 3 Blast Radius of The Gadget
+
+### (a)
+
+**Solution.** Write each quantity in $[M, L, T]$: $[R] = L$, $[\\rho] = ML^{-3}$, $[t] = T$, $[E] = ML^2 T^{-2}$. From $R \\propto \\rho^\\alpha t^\\beta E^\\gamma$ matching powers:
+
+$$\\begin{aligned}
+M &: \\alpha + \\gamma = 0, \\\\
+T &: \\beta - 2\\gamma = 0, \\\\
+L &: -3\\alpha + 2\\gamma = 1.
+\\end{aligned}$$
+
+Solving (top two: $\\alpha = -\\gamma$, $\\beta = 2\\gamma$; sub into the third): $3\\gamma + 2\\gamma = 1 \\implies \\gamma = 1/5$, hence
+
+$$\\alpha = -\\tfrac{1}{5}, \\quad \\beta = \\tfrac{2}{5}, \\quad \\gamma = \\tfrac{1}{5}, \\quad R = \\left(\\frac{E t^2}{\\rho}\\right)^{1/5}.$$
+
+### (b)
+
+**Solution.** For an ideal gas, $pV = nRT = (m/M_R)RT$, so
+
+$$\\rho = \\frac{m}{V} = \\frac{M_R p}{RT}.$$
+
+Sea level: $p = 1.01 \\times 10^5$ Pa, $T = 288$ K, $M_R = 0.029$ kg mol$^{-1}$:
+
+$$\\rho = \\frac{0.029 \\cdot 1.01 \\times 10^5}{8.31 \\cdot 288} = 1.2\\ \\text{kg m}^{-3}.$$
+
+### (c)
+
+**Solution.**
+
+$$c_s = \\sqrt{\\frac{\\gamma p}{\\rho}} = \\sqrt{\\frac{1.40 \\cdot 1.01 \\times 10^5}{1.23}} = 340\\ \\text{m s}^{-1}.$$
+
+### (d)
+
+**Solution.** Use Fig. 4,
+
+$$E = \\rho\\frac{R^5}{t^2} = \\frac{1.3 \\cdot (140)^5}{(0.025)^2} = \\frac{1.3 \\cdot 5.38 \\times 10^{10}}{6.25 \\times 10^{-4}} = 1.1 \\times 10^{14}\\ \\text{J}.$$
+
+$$E = 100\\ \\text{TJ}.$$
+
+### (e)
+
+**Solution.** With $k = 1$, $E = 10^{14}$ J, $\\rho = 1.3$ kg m$^{-3}$,
+
+$$R(t) = \\left(\\frac{E t^2}{\\rho}\\right)^{1/5} = (7.7 \\times 10^{13})^{1/5}\\,t^{2/5} = 599\\,t^{2/5}\\ \\text{m}.$$
+
+$$\\begin{aligned}
+R(1\\ \\text{ms}) &= 599 \\cdot (10^{-3})^{2/5} = 38\\ \\text{m}, \\\\
+R(10\\ \\text{ms}) &= 599 \\cdot (10^{-2})^{2/5} = 95\\ \\text{m}, \\\\
+R(0.1\\ \\text{s}) &= 599 \\cdot (10^{-1})^{2/5} = 239\\ \\text{m}.
+\\end{aligned}$$
+
+### (f)
+
+**Solution.** Differentiate $R = C t^{2/5}$ to get $\\dot{R} = \\tfrac{2}{5}C t^{-3/5} = \\frac{2R}{5t}$:
+
+$$\\begin{aligned}
+\\dot{R}(1\\ \\text{ms}) &= \\frac{2(38)}{5(10^{-3})} = 1.5 \\times 10^4\\ \\text{m s}^{-1}, \\\\
+\\dot{R}(10\\ \\text{ms}) &= \\frac{2(95)}{5(10^{-2})} = 3.8 \\times 10^3\\ \\text{m s}^{-1}, \\\\
+\\dot{R}(0.1\\ \\text{s}) &= \\frac{2(239)}{5(10^{-1})} = 9.6 \\times 10^2\\ \\text{m s}^{-1}.
+\\end{aligned}$$
+
+All three are still supersonic ($\\gg 340$ m s$^{-1}$).
+
+### (g)
+
+**Solution.** A strong shock is supersonic the air ahead cannot "hear" it coming (the pressure signal travels at $c_s$ whcich is slower than the shock), so the gas is violently compressed and heated across a thin layer. The entropy generation is irreversible, kinetic energy is converted into thermal energy in shell, which then radiates heat to the surroundings.
+
+Once $\\dot{R}$ drops below $c_s$, the disturbance is no longer a shock at all it becomes an ordinary acoustic sound wave.
+
+### (h)
+
+**Solution.** Set $\\dot{R} = c_s$:
+
+$$\\frac{2R}{5t} = c_s, \\qquad R = \\left(\\frac{E t^2}{\\rho}\\right)^{1/5}.$$
+
+$$t_{\\text{stall}} = \\left(\\frac{2}{5c_s}\\right)^{5/3}\\left(\\frac{E}{\\rho}\\right)^{1/3}.$$
+
+$$t_{\\text{stall}} = 0.56\\ \\text{s}.$$
+
+Then
+
+$$R_{\\text{stall}} = \\tfrac{5}{2}c_s t_{\\text{stall}} = \\tfrac{5}{2}(340)(0.56) = 4.8 \\times 10^2\\ \\text{m}.$$
+
+### (i)
+
+**Solution.** Pretend you dont see it, i have no clue either
+
+## Problem 4 The Pendulum
+
+### (a)
+
+**Solution.** Assumptions: string is light and inextensible, pivot frictionless, no air resistance, oscillation amplitude $\\varphi_0$ small enough that $\\sin\\varphi = \\varphi$.
+
+By Newton's Law Number Twoooooooooo
+
+$$m\\ell^2\\ddot{\\varphi} = -mg\\ell\\sin\\varphi = -mg\\ell\\,\\varphi.$$
+
+This is SHM with $\\omega^2 = g/\\ell$, so
+
+$$\\tau = 2\\pi\\sqrt{\\frac{\\ell}{g}}.$$
+
+### (b)
+
+**Solution.** Take the lowest point ($\\varphi = 0$) as zero PE. At angle $\\varphi$ the mass is at height $\\ell(1 - \\cos\\varphi)$ above this, and its speed is $\\ell\\dot{\\varphi}$. Released from rest at $\\varphi = \\varphi_0$:
+
+$$\\tfrac{1}{2}m\\ell^2\\dot{\\varphi}^2 + mg\\ell(1 - \\cos\\varphi) = mg\\ell(1 - \\cos\\varphi_0).$$
+
+$$\\dot{\\varphi}^2 = \\frac{2g}{\\ell}(\\cos\\varphi - \\cos\\varphi_0).$$
+
+### (c)
+
+**Solution.** By symmetry, a quarter period takes the pendulum from $\\varphi = 0$ to $\\varphi = \\varphi_0$:
+
+$$\\frac{T}{4} = \\int_0^{\\varphi_0}\\frac{d\\varphi}{\\dot{\\varphi}} = \\int_0^{\\varphi_0}\\sqrt{\\frac{\\ell}{2g(\\cos\\varphi - \\cos\\varphi_0)}}\\,d\\varphi.$$
+
+$$T = \\sqrt{\\frac{8\\ell}{g}}\\int_0^{\\varphi_0}\\frac{d\\varphi}{\\sqrt{\\cos\\varphi - \\cos\\varphi_0}}.$$
+
+### (d)
+
+**Solution.**
+
+$$\\cos\\varphi - \\cos\\varphi_0 = 2\\left[\\sin^2(\\varphi_0/2) - \\sin^2(\\varphi/2)\\right].$$
+
+Let $k = \\sin(\\varphi_0/2)$ and
+
+$$\\sin\\xi = \\frac{\\sin(\\varphi/2)}{\\sin(\\varphi_0/2)} = \\frac{\\sin(\\varphi/2)}{k}.$$
+
+$$\\cos\\varphi - \\cos\\varphi_0 = 2k^2\\left(1 - \\sin^2\\xi\\right) = 2k^2\\cos^2\\xi.$$
+
+$$\\tfrac{1}{2}\\cos(\\varphi/2)\\,d\\varphi = k\\cos\\xi\\,d\\xi \\implies d\\varphi = \\frac{2k\\cos\\xi\\,d\\xi}{\\cos(\\varphi/2)} = \\frac{2k\\cos\\xi\\,d\\xi}{\\sqrt{1 - k^2\\sin^2\\xi}}.$$
+
+as $\\varphi = 0 \\to \\xi = 0$ and $\\varphi = \\varphi_0 \\to \\xi = \\pi/2$.
+
+$$\\begin{aligned}
+T &= \\sqrt{\\frac{8\\ell}{g}}\\int_0^{\\pi/2}\\frac{1}{\\sqrt{2}\\,k\\cos\\xi}\\cdot\\frac{2k\\cos\\xi}{\\sqrt{1 - k^2\\sin^2\\xi}}\\,d\\xi \\\\
+&= \\sqrt{\\frac{8\\ell}{g}}\\cdot\\frac{2}{\\sqrt{2}}\\int_0^{\\pi/2}\\frac{d\\xi}{\\sqrt{1 - k^2\\sin^2\\xi}}.
+\\end{aligned}$$
+
+$$T = \\sqrt{\\frac{16\\ell}{g}}\\int_0^{\\pi/2}\\frac{d\\xi}{\\sqrt{1 - k^2\\sin^2\\xi}}, \\qquad k = \\sin(\\varphi_0/2).$$
+
+### (e)
+
+**Solution.** For small $\\varphi_0$, $k = \\sin(\\varphi_0/2) \\to 0$, so the integrand $\\to 1$ and
+
+$$T \\to \\sqrt{\\frac{16\\ell}{g}}\\cdot\\frac{\\pi}{2} = \\frac{\\pi}{2}\\cdot 4\\sqrt{\\frac{\\ell}{g}} = 2\\pi\\sqrt{\\frac{\\ell}{g}} = \\tau.$$
+
+### (f)
+
+**Solution.** Released level with pivot $\\implies \\varphi_0 = \\pi/2$, hence
+
+$$k = \\sin(\\pi/4) = \\tfrac{1}{\\sqrt{2}}, \\qquad \\cos(\\varphi_0/2) = \\cos(\\pi/4) = \\tfrac{1}{\\sqrt{2}}.$$
+
+The small angle period for $\\ell = 1.00$ m:
+
+$$\\tau = 2\\pi\\sqrt{\\frac{1.00}{9.81}} = 2.0064\\ \\text{s}.$$
+
+Compute $\\text{agm}\\left(1/\\sqrt{2}, 1\\right)$ iteratively (just two steps and it's already converged to four decimal places the agm has quadratic convergence):
+
+$$\\begin{aligned}
+a_0 &= 1, \\quad b_0 = 0.70711, \\\\
+a_1 &= \\tfrac{1}{2}(a_0 + b_0) = 0.85355, \\quad b_1 = \\sqrt{a_0 b_0} = 0.84090, \\\\
+a_2 &= 0.84723, \\quad b_2 = 0.84722.
+\\end{aligned}$$
+
+So $\\text{agm}\\left(1/\\sqrt{2}, 1\\right) = 0.84722$, giving
+
+$$T = \\frac{\\tau}{\\text{agm}[\\cos(\\varphi_0/2), 1]} = \\frac{2.0064}{0.84722} = 2.37\\ \\text{s}.$$
+
+About 18% longer than the small angle period not negligible at all.
+
+### (g)
+
+**Solution.**
+
+<figure>
+<img src="/images/bpho-r2-pendulum.jpg" alt="Two mass pendulum" />
+<figcaption>Figure 2: Caption &mdash; <a href="https://www.bpho.org.uk/Papers/R2/" target="_blank" rel="noopener noreferrer">view the problems</a></figcaption>
+</figure>
+
+For a compound pendulum (rigid body on a frictionless pivot), the SHM equation in the small angle limit reads $I\\ddot{\\varphi} = -MgR_{\\text{cm}}\\varphi$, giving an equivalent simple pendulum length
+
+$$L_{\\text{eq}} = \\frac{I}{MR_{\\text{cm}}}.$$
+
+For this system,
+
+$$\\begin{aligned}
+M &= m, \\\\
+R_{\\text{cm}} &= \\frac{1}{m}\\left[\\frac{m}{2}\\ell(1 - \\lambda) + \\frac{m}{2}\\ell(1 + \\lambda)\\right] = \\ell, \\\\
+I &= \\frac{m}{2}\\ell^2(1 - \\lambda)^2 + \\frac{m}{2}\\ell^2(1 + \\lambda)^2 = m\\ell^2(1 + \\lambda^2).
+\\end{aligned}$$
+
+Therefore
+
+$$L_{\\text{eq}} = \\frac{m\\ell^2(1 + \\lambda^2)}{m \\cdot \\ell} = \\ell(1 + \\lambda^2) > \\ell.$$
+
+Period scales as $\\sqrt{L_{\\text{eq}}}$, so
+
+$$\\frac{T_{\\text{2mass}}}{T_{\\text{simple}}} = \\sqrt{1 + \\lambda^2} > 1.$$
+
+The two mass pendulum has a longer period.
+
+Intuition: putting half the mass closer (lower $I$) and half further (higher $I$) is not symmetric the increase in $I$ from the outer mass dominates the decrease from the inner mass, while the centre of mass stays at the same distance $\\ell$ from the pivot. Bigger $I$ for the same restoring torque per radian $\\implies$ slower oscillation.`
   }
 
 ]
