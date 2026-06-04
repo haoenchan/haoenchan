@@ -1136,7 +1136,7 @@ $$v = \\sqrt{\\tfrac{3}{4}gL} = 2.7\\ \\text{m s}^{-1}.$$
 
 <figure>
 <img src="/images/bpho-r2-tower.jpg" alt="Idealised tower" />
-<figcaption>Figure 1: Idealised tower &mdash; <a href="https://www.bpho.org.uk/Papers/R2/" target="_blank" rel="noopener noreferrer">view the problems</a></figcaption>
+<figcaption>Figure 1: Idealised tower</figcaption>
 </figure>
 
 Idealise the tower as a solid right cylinder of height $h$, diameter $d$, density $\\rho_s$. It topples by pivoting about the downwind base edge. The wind force $F = \\rho A v^2$ acts at height $h/2$ (line of action through the centre of the projected rectangle $A = hd$), and the weight $W = \\rho_s \\pi (d/2)^2 h g$ acts through the centre of mass, a horizontal distance $d/2$ from the pivot.
@@ -1448,7 +1448,7 @@ About 18% longer than the small angle period not negligible at all.
 
 <figure>
 <img src="/images/bpho-r2-pendulum.jpg" alt="Two mass pendulum" />
-<figcaption>Figure 2: Caption &mdash; <a href="https://www.bpho.org.uk/Papers/R2/" target="_blank" rel="noopener noreferrer">view the problems</a></figcaption>
+<figcaption>Figure 2: Caption</figcaption>
 </figure>
 
 For a compound pendulum (rigid body on a frictionless pivot), the SHM equation in the small angle limit reads $I\\ddot{\\varphi} = -MgR_{\\text{cm}}\\varphi$, giving an equivalent simple pendulum length
