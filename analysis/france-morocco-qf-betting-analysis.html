@@ -1,0 +1,508 @@
+<title>France v Morocco — QF Betting Dossier</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+  :root{
+    --paper:#F3F5F1; --card:#FFFFFF; --card2:#EBEFE9;
+    --ink:#1A231D; --ink2:#48544B; --muted:#758177; --line:#DBE1DA;
+    --fr:#1D4E9E; --fr-soft:#E3EAF7; --ma:#A63A2B; --ma-soft:#F6E7E3;
+    --money:#1E7A4B; --money-soft:#DFEEE4;
+    --flag-bg:#FBEFD9; --flag-ink:#8A5A14;
+    --dg:#1B6B43; --dg-ink:#FFFFFF;
+    --mg:#5AA37B; --mg-ink:#0E2A1C;
+    --lg:#C9E5D3; --lg-ink:#174B30;
+    --lr:#F3D2CB; --lr-ink:#7C2A1D;
+    --mr:#D98872; --mr-ink:#4A140B;
+    --dr:#A22F22; --dr-ink:#FFFFFF;
+  }
+  @media (prefers-color-scheme: dark){
+    :root{
+      --paper:#12160F; --card:#1A2018; --card2:#20281E;
+      --ink:#E7ECE5; --ink2:#ADB8AC; --muted:#7E8A7D; --line:#2C352A;
+      --fr:#8FB0E8; --fr-soft:#1B2740; --ma:#E29380; --ma-soft:#3C201A;
+      --money:#6FBE93; --money-soft:#1C332582;
+      --flag-bg:#37290F; --flag-ink:#E0B36A;
+      --dg:#2F9560; --dg-ink:#04130A;
+      --mg:#276044; --mg-ink:#CFE9DA;
+      --lg:#1E3A2B; --lg-ink:#9FD1B4;
+      --lr:#46221B; --lr-ink:#EBB3A6;
+      --mr:#7A382B; --mr-ink:#F4CDC2;
+      --dr:#C04A36; --dr-ink:#1D0602;
+    }
+  }
+  :root[data-theme="light"]{
+    --paper:#F3F5F1; --card:#FFFFFF; --card2:#EBEFE9;
+    --ink:#1A231D; --ink2:#48544B; --muted:#758177; --line:#DBE1DA;
+    --fr:#1D4E9E; --fr-soft:#E3EAF7; --ma:#A63A2B; --ma-soft:#F6E7E3;
+    --money:#1E7A4B; --money-soft:#DFEEE4;
+    --flag-bg:#FBEFD9; --flag-ink:#8A5A14;
+    --dg:#1B6B43; --dg-ink:#FFFFFF; --mg:#5AA37B; --mg-ink:#0E2A1C;
+    --lg:#C9E5D3; --lg-ink:#174B30; --lr:#F3D2CB; --lr-ink:#7C2A1D;
+    --mr:#D98872; --mr-ink:#4A140B; --dr:#A22F22; --dr-ink:#FFFFFF;
+  }
+  :root[data-theme="dark"]{
+    --paper:#12160F; --card:#1A2018; --card2:#20281E;
+    --ink:#E7ECE5; --ink2:#ADB8AC; --muted:#7E8A7D; --line:#2C352A;
+    --fr:#8FB0E8; --fr-soft:#1B2740; --ma:#E29380; --ma-soft:#3C201A;
+    --money:#6FBE93; --money-soft:#1C332582;
+    --flag-bg:#37290F; --flag-ink:#E0B36A;
+    --dg:#2F9560; --dg-ink:#04130A; --mg:#276044; --mg-ink:#CFE9DA;
+    --lg:#1E3A2B; --lg-ink:#9FD1B4; --lr:#46221B; --lr-ink:#EBB3A6;
+    --mr:#7A382B; --mr-ink:#F4CDC2; --dr:#C04A36; --dr-ink:#1D0602;
+  }
+  *{box-sizing:border-box}
+  body{
+    background:var(--paper); color:var(--ink);
+    font:16px/1.6 system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;
+    margin:0; padding:0 20px 80px;
+  }
+  .wrap{max-width:1020px; margin:0 auto}
+  .disp{font-family:"Avenir Next Condensed","Helvetica Neue Condensed","Arial Narrow",system-ui,sans-serif;
+    text-transform:uppercase; letter-spacing:.02em; font-weight:700}
+  .mono{font-family:ui-monospace,"SF Mono",Menlo,Consolas,monospace; font-variant-numeric:tabular-nums}
+  .eyebrow{font-size:12px; letter-spacing:.18em; text-transform:uppercase; color:var(--muted); font-weight:600}
+
+  /* header */
+  header{padding:56px 0 28px; border-bottom:3px solid var(--ink)}
+  header .stage{display:flex; align-items:center; gap:12px; margin-bottom:14px}
+  header .stage .dot{width:8px;height:8px;border-radius:50%;background:var(--money)}
+  h1{font-size:clamp(40px,7vw,76px); line-height:.95; margin:0 0 18px; text-wrap:balance}
+  h1 .fr{color:var(--fr)} h1 .ma{color:var(--ma)} h1 .v{color:var(--muted); font-weight:400; font-size:.55em; vertical-align:.28em; padding:0 .1em}
+  .meta{display:flex; flex-wrap:wrap; gap:8px 28px; color:var(--ink2); font-size:14.5px}
+  .meta b{color:var(--ink); font-weight:600}
+
+  section{margin-top:56px}
+  h2{font-size:26px; margin:0 0 6px; letter-spacing:.03em}
+  h2 + .lede{margin:0 0 20px; color:var(--ink2); max-width:68ch}
+  .sub{color:var(--ink2); font-size:14px}
+  h3{font-size:15px; letter-spacing:.1em; text-transform:uppercase; margin:26px 0 10px; color:var(--ink2)}
+
+  .note{background:var(--flag-bg); color:var(--flag-ink); border-radius:6px; padding:12px 16px; font-size:14px; margin:18px 0}
+  .note b{font-weight:700}
+
+  /* cards */
+  .cards{display:grid; grid-template-columns:1fr 1fr; gap:18px}
+  @media(max-width:760px){.cards{grid-template-columns:1fr}}
+  .tcard{background:var(--card); border:1px solid var(--line); border-top:5px solid var(--fr); border-radius:8px; padding:22px 24px}
+  .tcard.ma{border-top-color:var(--ma)}
+  .tcard h4{margin:0; font-size:24px}
+  .tcard .role{color:var(--muted); font-size:13px; margin-bottom:14px}
+  .kv{display:grid; grid-template-columns:110px 1fr; gap:6px 14px; font-size:14.5px; margin:14px 0}
+  .kv dt{color:var(--muted)} .kv dd{margin:0}
+  .rec{display:flex; gap:6px; flex-wrap:wrap; margin:10px 0 4px}
+  .rec span{font-size:12.5px; padding:3px 9px; border-radius:4px; background:var(--card2); color:var(--ink2); white-space:nowrap}
+  .rec span.w{background:var(--money-soft); color:var(--money); font-weight:600}
+  .rec span.d{background:var(--card2)}
+
+  /* tables */
+  .tblwrap{overflow-x:auto; border:1px solid var(--line); border-radius:8px; background:var(--card)}
+  table{border-collapse:collapse; width:100%; font-size:14.5px}
+  th{font-size:12px; letter-spacing:.08em; text-transform:uppercase; color:var(--muted); font-weight:600; text-align:left; padding:11px 14px; border-bottom:2px solid var(--line); white-space:nowrap}
+  td{padding:10px 14px; border-bottom:1px solid var(--line); vertical-align:top}
+  tr:last-child td{border-bottom:none}
+  td.num,th.num{text-align:right; font-family:ui-monospace,"SF Mono",Menlo,Consolas,monospace; font-variant-numeric:tabular-nums; white-space:nowrap}
+  .pill{display:inline-block; font-size:11.5px; font-weight:700; letter-spacing:.06em; padding:2px 8px; border-radius:99px; text-transform:uppercase}
+  .pill.hi{background:var(--money-soft); color:var(--money)}
+  .pill.med{background:var(--fr-soft); color:var(--fr)}
+  .pill.flag{background:var(--flag-bg); color:var(--flag-ink)}
+  .pill.sel{background:var(--money); color:var(--paper)}
+  .pill.rej{background:var(--card2); color:var(--muted)}
+
+  /* bars */
+  .bar{display:flex; align-items:center; gap:10px; min-width:150px}
+  .bar .track{flex:1; height:10px; border-radius:5px; background:var(--card2); overflow:hidden}
+  .bar .fill{height:100%; border-radius:5px; background:var(--money)}
+  .bar .fill.med{background:color-mix(in srgb, var(--money) 55%, var(--card2))}
+  .bar .val{font-family:ui-monospace,Menlo,Consolas,monospace; font-size:13px; color:var(--ink2); width:38px; text-align:right}
+  .prob .track{height:14px}
+  .prob .fill.fr{background:var(--fr)} .prob .fill.dr{background:var(--muted)} .prob .fill.mo{background:var(--ma)}
+
+  /* matrix */
+  .matrix td, .matrix th{padding:0; border-bottom:1px solid var(--line)}
+  .matrix thead th{text-align:center; padding:10px 6px}
+  .matrix .rowhead{padding:8px 12px; font-weight:600; white-space:nowrap; color:var(--ink2); font-size:13px}
+  .matrix .cell{display:block; text-align:center; padding:13px 6px; font-family:ui-monospace,Menlo,Consolas,monospace; font-variant-numeric:tabular-nums; font-size:13.5px; font-weight:600; min-width:74px}
+  .c-dg{background:var(--dg); color:var(--dg-ink)} .c-mg{background:var(--mg); color:var(--mg-ink)}
+  .c-lg{background:var(--lg); color:var(--lg-ink)} .c-lr{background:var(--lr); color:var(--lr-ink)}
+  .c-mr{background:var(--mr); color:var(--mr-ink)} .c-dr{background:var(--dr); color:var(--dr-ink)}
+  .cell.pred{outline:3px solid var(--ink); outline-offset:-3px}
+  .legend{display:flex; flex-wrap:wrap; gap:8px 18px; margin-top:14px; font-size:13px; color:var(--ink2)}
+  .legend i{display:inline-block; width:14px; height:14px; border-radius:3px; margin-right:6px; vertical-align:-2px}
+
+  .grid2{display:grid; grid-template-columns:1fr 1fr; gap:18px}
+  @media(max-width:760px){.grid2{grid-template-columns:1fr}}
+  .panel{background:var(--card); border:1px solid var(--line); border-radius:8px; padding:20px 24px}
+  .panel h4{margin:0 0 10px; font-size:15px; letter-spacing:.08em; text-transform:uppercase; color:var(--ink2)}
+  .panel p{margin:0 0 10px; font-size:15px} .panel p:last-child{margin:0}
+  .big{font-size:44px; line-height:1; margin:4px 0 2px}
+  .big .fr{color:var(--fr)} .big .ma{color:var(--ma)}
+
+  footer{margin-top:64px; padding-top:24px; border-top:1px solid var(--line); color:var(--muted); font-size:13px}
+  footer a{color:var(--ink2)}
+  ul.src{columns:2; gap:32px; padding-left:18px; margin:10px 0}
+  @media(max-width:700px){ul.src{columns:1}}
+  ul.src li{margin-bottom:6px; break-inside:avoid}
+  a{color:var(--fr)}
+  :focus-visible{outline:2px solid var(--fr); outline-offset:2px}
+</style>
+
+<div class="wrap">
+
+<header>
+  <div class="stage eyebrow disp"><span class="dot"></span> FIFA World Cup 2026 · Quarter-final · Match analysis &amp; $50 stake plan</div>
+  <h1 class="disp"><span class="fr">France</span><span class="v">v</span><span class="ma">Morocco</span></h1>
+  <div class="meta">
+    <span><b>Kick-off</b> Thu 9 Jul 2026, 16:00 ET (Fri 10 Jul, 04:00 HKT)</span>
+    <span><b>Venue</b> Gillette Stadium, Foxborough (Boston)</span>
+    <span><b>Route</b> France won Group I · Morocco 2nd in Group C</span>
+    <span><b>Prize</b> Semi-final v Spain or Belgium</span>
+  </div>
+  <div class="note" style="margin-bottom:0">The brief listed the date as 10/8/26 — the fixture is actually <b>9 July 2026 (US ET)</b>, which is 10 July 04:00 in the bettor's timezone, matching the 1xBet slip ("10.07.2026 04:00"). All bets below settle on <b>90 minutes only</b>; extra time and penalties do not count.</div>
+</header>
+
+<!-- ============ 2. TEAM OVERVIEW ============ -->
+<section>
+  <div class="eyebrow disp">Section 1 · Team overview</div>
+  <h2 class="disp">Two unbeaten sides, one open question: who scores?</h2>
+  <p class="lede">France have won all five games without going behind once. Morocco are unbeaten too — but their two meetings with elite opposition (Brazil, Netherlands) both finished 1–1.</p>
+  <div class="cards">
+    <div class="tcard">
+      <h4 class="disp" style="color:var(--fr)">France</h4>
+      <div class="role">Group I winners · 15 pts of 15 · GF 14 / GA 2</div>
+      <div class="rec">
+        <span class="w">3–1 Senegal</span><span class="w">3–0 Iraq</span><span class="w">4–1 Norway</span><span class="w">3–0 Sweden (R32)</span><span class="w">1–0 Paraguay (R16)</span>
+      </div>
+      <dl class="kv">
+        <dt>Manager</dt><dd>Didier Deschamps — his final tournament in charge; pragmatic 4-2-3-1, high press, lethal in transition</dd>
+        <dt>Key players</dt><dd><b>Mbappé</b> (7 goals, joint Golden Boot lead with Messi &amp; Haaland), <b>Dembélé</b> (4 goals incl. 32-minute hat-trick v Norway), <b>Olise</b> (chief creator)</dd>
+        <dt>Injuries</dt><dd><b>Tchouaméni likely OUT</b> (adductor/thigh tear) — Koné expected alongside Rabiot</dd>
+        <dt>Motivation</dt><dd>Deschamps' last dance; Mbappé chasing the Golden Boot; tournament favourites with a 2022-final score to settle</dd>
+      </dl>
+    </div>
+    <div class="tcard ma">
+      <h4 class="disp" style="color:var(--ma)">Morocco</h4>
+      <div class="role">Group C runners-up (GD behind Brazil) · unbeaten · GA 4 in 5</div>
+      <div class="rec">
+        <span class="d">1–1 Brazil</span><span class="w">bt Scotland (CS)</span><span class="w">4–2 Haiti</span><span class="d">1–1 Netherlands (3–2 pens, R32)</span><span class="w">3–0 Canada (R16)</span>
+      </div>
+      <dl class="kv">
+        <dt>Manager</dt><dd>Mohamed Ouahbi — compact 4-2-3-1 mid/low block, kills tempo, springs counters; "We're no longer a surprise"</dd>
+        <dt>Key players</dt><dd><b>Hakimi</b> (15 chances created — most ever by an African defender in one WC), <b>Ounahi</b> (2 goals v Canada), <b>Bounou</b> (shoot-out hero v Netherlands), <b>Brahim Díaz</b></dd>
+        <dt>Injuries</dt><dd><b>Saibari doubtful</b> (hamstring, game-time decision) — Rahimi primed to start; Riad back from a knee knock</dd>
+        <dt>Motivation</dt><dd>Revenge for the 2022 semi-final; back-to-back quarter-finals; a nation expecting history, not hoping for it</dd>
+      </dl>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 3. HEAD TO HEAD ============ -->
+<section>
+  <div class="eyebrow disp">Section 2 · Head-to-head</div>
+  <h2 class="disp">France lead 4–1–1, and won the only World Cup meeting</h2>
+  <p class="lede">Six prior meetings. The one that matters: Qatar 2022's semi-final, where Morocco had the ball for long spells but France scored early and late to win 2–0 — the exact template for Thursday.</p>
+  <div class="tblwrap">
+    <table>
+      <thead><tr><th>Date</th><th>Competition</th><th>Result</th><th class="num">Score</th><th>Context</th></tr></thead>
+      <tbody>
+        <tr><td>Dec 2022</td><td><b>World Cup semi-final</b>, Qatar</td><td><b style="color:var(--fr)">France won</b></td><td class="num">2–0</td><td>T. Hernández 5', Kolo Muani 79'; Morocco's historic run ended</td></tr>
+        <tr><td>Nov 2007</td><td>Friendly, Stade de France</td><td>Draw</td><td class="num">2–2</td><td>Open, end-to-end exhibition</td></tr>
+        <tr><td>Jun 2000</td><td>Friendly</td><td><b style="color:var(--fr)">France won</b></td><td class="num">5–1</td><td>France's biggest win in the fixture</td></tr>
+        <tr><td>Jan 1999</td><td>Friendly</td><td><b style="color:var(--fr)">France won</b></td><td class="num">1–0</td><td>Low-scoring, single-goal margin</td></tr>
+        <tr><td>Jun 1998</td><td>King Hassan II Cup</td><td><b style="color:var(--ma)">Morocco won (pens)</b></td><td class="num">2–2 (6–5p)</td><td>Casablanca; Morocco's only "win"</td></tr>
+        <tr><td>Feb 1988</td><td>Tournoi de France</td><td><b style="color:var(--fr)">France won</b></td><td class="num">2–1</td><td>First official meeting</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <p class="sub" style="margin-top:10px">Pattern worth noting: 4 of 6 meetings produced 3+ goals — but both were friendlies. The competitive meetings (1998, 1999, 2022) went 2–2, 1–0, 2–0.</p>
+</section>
+
+<!-- ============ 4. STAKES ============ -->
+<section>
+  <div class="eyebrow disp">Section 3 · Qualification stakes</div>
+  <h2 class="disp">Knockout football: no dead rubbers, no games to throw</h2>
+  <div class="grid2">
+    <div class="panel">
+      <h4>How they got here</h4>
+      <p><b style="color:var(--fr)">France</b> won Group I (Norway, Senegal, Iraq) with a perfect 9 points and +8 goal difference, then dismissed Sweden 3–0 and ground out 1–0 v Paraguay in 100°F heat in Philadelphia.</p>
+      <p><b style="color:var(--ma)">Morocco</b> finished level on 7 points with Brazil in Group C, edged out on goal difference only, then survived the Netherlands on penalties and dominated Canada 3–0.</p>
+    </div>
+    <div class="panel">
+      <h4>Motivation read</h4>
+      <p>Single elimination — <b>no incentive whatsoever to draw or lose</b>, and no goal-difference games. A draw after 90' sends it to extra time (bets here settle at 90').</p>
+      <p>Winner meets <b>Spain or Belgium</b> in the semi-final. Morocco's rational path is exactly what they did v Brazil and Netherlands: stay compact, keep it 0–0 deep into the game, and take their chances late or on penalties. France want an early goal to avoid that script — precisely how they solved this fixture in 2022.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 5. ODDS BOARD ============ -->
+<section>
+  <div class="eyebrow disp">Section 4 · 1xBet odds extraction</div>
+  <h2 class="disp">The odds board</h2>
+  <p class="lede">Extracted from the six 1xBet screenshots (regular time, taken ~29h before kick-off). France = "1 / W1", Morocco = "2 / W2". Markets <em>not</em> captured in the screenshots: plain 1X2, plain BTTS, first team to score, individual team totals, half markets, corners and player props — those categories are marked below and none are recommended.</p>
+
+  <h3>Total goals (over / under)</h3>
+  <div class="tblwrap"><table>
+    <thead><tr><th>Line</th><th class="num">Over</th><th class="num">Under</th><th>Liquidity</th></tr></thead>
+    <tbody>
+      <tr><td>0.5</td><td class="num">1.01</td><td class="num">9.60</td><td><span class="pill flag">Low — skip</span></td></tr>
+      <tr><td>1.0 (Asian)</td><td class="num">1.012</td><td class="num">8.50</td><td><span class="pill flag">Low — skip</span></td></tr>
+      <tr><td>1.5</td><td class="num">1.26</td><td class="num">3.34</td><td>OK</td></tr>
+      <tr><td>2.0 (Asian)</td><td class="num">1.44</td><td class="num">2.58</td><td>OK</td></tr>
+      <tr><td><b>2.5</b> (main line)</td><td class="num">1.982</td><td class="num"><b>1.88</b></td><td>OK — deepest market</td></tr>
+      <tr><td><b>3.0 (Asian)</b></td><td class="num">2.65</td><td class="num"><b>1.42</b></td><td>OK</td></tr>
+      <tr><td>3.5</td><td class="num">3.28</td><td class="num">1.27</td><td>OK</td></tr>
+      <tr><td>4.0 / 4.5 / 5.0</td><td class="num">5.70 / 6.55 / 12.0</td><td class="num">1.075 / 1.05 / 1.03</td><td><span class="pill flag">Thin tails — skip</span></td></tr>
+    </tbody>
+  </table></div>
+
+  <h3>Handicap (France −x / Morocco +x)</h3>
+  <div class="tblwrap"><table>
+    <thead><tr><th>Line</th><th class="num">France</th><th class="num">Morocco</th><th>Liquidity</th></tr></thead>
+    <tbody>
+      <tr><td>0 (Draw no bet)</td><td class="num">1.136</td><td class="num">4.85</td><td>OK</td></tr>
+      <tr><td>±1</td><td class="num">1.96</td><td class="num">1.84</td><td>OK</td></tr>
+      <tr><td>±1.5</td><td class="num">2.694</td><td class="num">1.504</td><td>OK</td></tr>
+      <tr><td>±2 / ±2.5</td><td class="num">4.40 / 5.25</td><td class="num">1.155 / 1.094</td><td>OK</td></tr>
+      <tr><td>±3 / ±3.5</td><td class="num">9.90 / 11.0</td><td class="num">1.05 / 1.04</td><td><span class="pill flag">Thin tails — skip</span></td></tr>
+      <tr><td>Morocco −1 / −1.5</td><td class="num">—</td><td class="num">14.5 / 15.5</td><td><span class="pill flag">Low — skip</span></td></tr>
+    </tbody>
+  </table></div>
+
+  <h3>Result + total combos ("W1" = France win, "1X" = France or draw)</h3>
+  <div class="tblwrap"><table>
+    <thead><tr><th>Market</th><th class="num">Yes</th><th class="num">No</th><th>Liquidity</th></tr></thead>
+    <tbody>
+      <tr><td>W1 + Under 1.5 / Over 1.5</td><td class="num">6.35 / 1.95</td><td class="num">1.116 / 1.85</td><td>OK</td></tr>
+      <tr><td>1X + Under 1.5 / Over 1.5</td><td class="num">4.30 / 1.47</td><td class="num">1.22 / 2.68</td><td>OK</td></tr>
+      <tr><td>W1 + Under 2.5 / Over 2.5</td><td class="num">3.52 / 2.56</td><td class="num">1.30 / 1.51</td><td>OK</td></tr>
+      <tr><td><b>1X + Under 2.5</b> / Over 2.5</td><td class="num"><b>2.11</b> / 2.26</td><td class="num">1.727 / 1.64</td><td>OK</td></tr>
+      <tr><td>W1 + Under 3.5</td><td class="num">2.17</td><td class="num">1.69</td><td>OK</td></tr>
+    </tbody>
+  </table></div>
+
+  <h3>BTTS combos</h3>
+  <div class="tblwrap"><table>
+    <thead><tr><th>Market</th><th class="num">Yes</th><th class="num">No</th><th>Liquidity</th></tr></thead>
+    <tbody>
+      <tr><td>BTTS + Over 2.5 / Under 2.5</td><td class="num">2.50 / 7.00</td><td class="num">1.45 / 1.07</td><td>OK</td></tr>
+      <tr><td><b>BTTS + Over 3.5</b> / Under 3.5</td><td class="num">4.00 / 3.60</td><td class="num"><b>1.22</b> / 1.25</td><td>OK</td></tr>
+      <tr><td>BTTS + Over 4.5 / 5.5</td><td class="num">7.70 / 15.0</td><td class="num">1.06 / —</td><td><span class="pill flag">Thin tails — skip</span></td></tr>
+      <tr><td>W1 + BTTS · X + BTTS · W2 + BTTS (Yes)</td><td class="num">3.50 · 5.50 · 12.0</td><td class="num">1.222 · 1.079 · —</td><td>W2+BTTS <span class="pill flag">Low</span></td></tr>
+      <tr><td>1X / 12 / 2X + BTTS (Yes)</td><td class="num">2.28 / 2.95 / 3.95</td><td class="num">1.542 / 1.361 / 1.202</td><td>OK</td></tr>
+      <tr><td>Each team 2+ goals combos</td><td class="num">10.2–15.5</td><td class="num">1.029</td><td><span class="pill flag">Low — skip</span></td></tr>
+    </tbody>
+  </table></div>
+
+  <h3>Correct score (France–Morocco)</h3>
+  <div class="tblwrap"><table>
+    <thead><tr><th>Score</th><th class="num">Odds</th><th>Score</th><th class="num">Odds</th><th>Score</th><th class="num">Odds</th></tr></thead>
+    <tbody>
+      <tr><td>1–0</td><td class="num">5.5</td><td>0–0</td><td class="num">10</td><td>0–1</td><td class="num">13</td></tr>
+      <tr><td>2–0</td><td class="num">7.0</td><td>1–1</td><td class="num">6.5</td><td>0–2</td><td class="num">36 ⚑</td></tr>
+      <tr><td>2–1</td><td class="num">7.0</td><td>2–2</td><td class="num">14</td><td>1–2</td><td class="num">15</td></tr>
+      <tr><td>3–0</td><td class="num">12</td><td>3–3</td><td class="num">70 ⚑</td><td>0–3</td><td class="num">100 ⚑</td></tr>
+      <tr><td>3–1</td><td class="num">13</td><td>4–0</td><td class="num">21</td><td>1–3</td><td class="num">65 ⚑</td></tr>
+      <tr><td>3–2</td><td class="num">21</td><td>4–1</td><td class="num">23</td><td>2–3</td><td class="num">55 ⚑</td></tr>
+      <tr><td>4–2</td><td class="num">55 ⚑</td><td>4–4 &amp; higher</td><td class="num">100 ⚑</td><td>Any other</td><td class="num">100 ⚑</td></tr>
+    </tbody>
+  </table></div>
+  <p class="sub" style="margin-top:10px">⚑ = implied liquidity judged below ~$100 (extreme prices, wide margins) — excluded from consideration per the liquidity rule. Correct scores are also excluded from recommendation by the safety-first rule: one goal flips any of them.</p>
+
+  <h3>Not captured in screenshots (reference prices from US books, for context only)</h3>
+  <div class="tblwrap"><table>
+    <thead><tr><th>Market</th><th>Status</th><th>Reference</th></tr></thead>
+    <tbody>
+      <tr><td>Moneyline 1X2 (90')</td><td>Not in screenshots</td><td>France ≈1.56 (−180) · Draw ≈3.85 (+285) · Morocco ≈6.50 (+550) — FanDuel</td></tr>
+      <tr><td>To advance</td><td>Not in screenshots</td><td>France ≈1.24 (−410) · Morocco ≈4.10 (+310)</td></tr>
+      <tr><td>Plain BTTS · first to score · team totals · halves · corners · player props</td><td>Not provided</td><td>Not analysed — no verifiable 1xBet price</td></tr>
+    </tbody>
+  </table></div>
+</section>
+
+<!-- ============ 6. PREDICTION ============ -->
+<section>
+  <div class="eyebrow disp">Section 5 · Match prediction</div>
+  <h2 class="disp">Best call: France 2–0 — and a game shorter on goals than the market thinks</h2>
+  <div class="grid2" style="margin-bottom:18px">
+    <div class="panel">
+      <h4>Most likely scoreline</h4>
+      <div class="big disp"><span class="fr">France 2</span> – <span class="ma">0 Morocco</span></div>
+      <p class="sub" style="margin:8px 0 12px">1–0 is fractionally more likely cell-by-cell (22% v 17% of the top-8 mass); 2–0 is chosen as the headline call because France's pattern v deep blocks — and the 2022 semi itself — is one goal in normal flow, one late against a stretched, chasing side.</p>
+      <p>Model: independent-Poisson, France xG 1.60, Morocco xG 0.60 (total 2.2 v the market's ~2.5). Calibration check: the model reproduces the market's 1X2 almost exactly (France 62% / Draw 25% / Morocco 14% v de-vigged 61 / 25 / 15) — the disagreement is <b>only about how many goals</b>, which is where the value is.</p>
+    </div>
+    <div class="panel">
+      <h4>Scoreline probabilities (top 8, normalised to 100%)</h4>
+      <div class="tblwrap" style="border:none"><table style="font-size:14px">
+        <thead><tr><th>Score</th><th style="width:55%">Share of top-8</th><th class="num">Norm.</th><th class="num">Raw model</th></tr></thead>
+        <tbody>
+          <tr><td>1–0</td><td><div class="bar prob"><div class="track"><div class="fill fr" style="width:88%"></div></div></div></td><td class="num">22%</td><td class="num">17.7%</td></tr>
+          <tr><td><b>2–0</b></td><td><div class="bar prob"><div class="track"><div class="fill fr" style="width:68%"></div></div></div></td><td class="num">17%</td><td class="num">14.2%</td></tr>
+          <tr><td>0–0</td><td><div class="bar prob"><div class="track"><div class="fill dr" style="width:56%"></div></div></div></td><td class="num">14%</td><td class="num">11.1%</td></tr>
+          <tr><td>1–1</td><td><div class="bar prob"><div class="track"><div class="fill dr" style="width:52%"></div></div></div></td><td class="num">13%</td><td class="num">10.6%</td></tr>
+          <tr><td>2–1</td><td><div class="bar prob"><div class="track"><div class="fill fr" style="width:44%"></div></div></div></td><td class="num">11%</td><td class="num">8.5%</td></tr>
+          <tr><td>3–0</td><td><div class="bar prob"><div class="track"><div class="fill fr" style="width:36%"></div></div></div></td><td class="num">9%</td><td class="num">7.6%</td></tr>
+          <tr><td>0–1</td><td><div class="bar prob"><div class="track"><div class="fill mo" style="width:32%"></div></div></div></td><td class="num">8%</td><td class="num">6.6%</td></tr>
+          <tr><td>3–1</td><td><div class="bar prob"><div class="track"><div class="fill fr" style="width:24%"></div></div></div></td><td class="num">6%</td><td class="num">4.5%</td></tr>
+        </tbody>
+      </table></div>
+      <p class="sub" style="margin-top:8px">All other scorelines: 19.2% raw. Bar colour = winner (blue France, red Morocco, grey draw).</p>
+    </div>
+  </div>
+  <div class="grid2">
+    <div class="panel">
+      <h4>Tactical summary</h4>
+      <p>Ouahbi will do to France what he did to Brazil and the Netherlands: a compact 4-2-3-1 mid-block, El Aynaoui and Bouaddi playing through the press, tempo strangled, with Hakimi and Ounahi the outlets — both of those games finished 1–1. Deschamps, missing Tchouaméni's ball-winning, will press slightly less aggressively and trust Olise and Doué to move the block before releasing Mbappé into the left channel — Hakimi v Mbappé is the game inside the game. Add a 4pm July kick-off in East-coast heat (the Paraguay game was played at ~100°F and produced one goal) and everything points to a patient, low-tempo match decided by one or two moments rather than a shoot-out.</p>
+    </div>
+    <div class="panel">
+      <h4>Risk assessment — the wildcard</h4>
+      <p><b>Game state is the whole bet.</b> The single scenario that invalidates this analysis is an <b>early Morocco goal</b> (as in 2022 — but in reverse — when France scored on 5'). If Morocco lead inside 30', France must chase, the block breaks open at both ends, and every under-flavoured position below is in danger simultaneously — the portfolio is deliberately correlated and does not pretend otherwise.</p>
+      <p class="sub">Secondary risks: Saibari passing fit changes Morocco's counter-threat; a red card or early penalty; my 2.2-goal total v the market's 2.5 is a genuine disagreement — if the market is right, these edges shrink to roughly break-even.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 7. BETS ============ -->
+<section>
+  <div class="eyebrow disp">Section 6 · Bet selection &amp; $50 stake allocation</div>
+  <h2 class="disp">Four bets, one thesis: a controlled, low-scoring France win</h2>
+  <p class="lede">Every candidate market was scored for edge (my probability minus the 1xBet-implied probability, minimum +5 points) and passed through the safety-first and liquidity rules. Only four cleared the bar — all four monetise the same view from different angles and safety levels, and the payoff matrix below shows the combined exposure honestly.</p>
+
+  <div class="tblwrap">
+    <table>
+      <thead><tr><th>#</th><th>Bet</th><th class="num">Odds</th><th style="min-width:170px">Confidence</th><th>Tier</th><th class="num">Stake</th><th class="num">Profit if wins</th><th class="num">EV</th></tr></thead>
+      <tbody>
+        <tr>
+          <td>1</td><td><b>Under 2.5 total goals</b></td><td class="num">1.88</td>
+          <td><div class="bar"><div class="track"><div class="fill med" style="width:62%"></div></div><span class="val">62%</span></div></td>
+          <td><span class="pill med">Medium</span></td><td class="num">$12</td><td class="num">+$10.56</td><td class="num">+$2.05</td>
+        </tr>
+        <tr>
+          <td>2</td><td><b>Asian total under 3.0</b> <span class="sub">(3 goals = stake refunded)</span></td><td class="num">1.42</td>
+          <td><div class="bar"><div class="track"><div class="fill" style="width:82%"></div></div><span class="val">82%</span></div></td>
+          <td><span class="pill hi">High</span></td><td class="num">$14</td><td class="num">+$5.88</td><td class="num">+$1.14</td>
+        </tr>
+        <tr>
+          <td>3</td><td><b>1X + Under 2.5</b> <span class="sub">(France or draw &amp; under 2.5)</span></td><td class="num">2.11</td>
+          <td><div class="bar"><div class="track"><div class="fill med" style="width:54%"></div></div><span class="val">54%</span></div></td>
+          <td><span class="pill med">Medium</span></td><td class="num">$9</td><td class="num">+$9.99</td><td class="num">+$1.18</td>
+        </tr>
+        <tr>
+          <td>4</td><td><b>BTTS + Over 3.5 — No</b> <span class="sub">(loses only if both score in a 4+ goal game)</span></td><td class="num">1.22</td>
+          <td><div class="bar"><div class="track"><div class="fill" style="width:88%"></div></div><span class="val">88%</span></div></td>
+          <td><span class="pill hi">High</span></td><td class="num">$15</td><td class="num">+$3.30</td><td class="num">+$1.03</td>
+        </tr>
+        <tr>
+          <td colspan="5" style="text-align:right; font-weight:600">Total</td><td class="num"><b>$50</b></td><td class="num">—</td><td class="num"><b>+$5.40</b></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  <p class="sub" style="margin-top:10px">Confidence for bet 2 counts win-or-refund (62% win + 20% push). Stakes are proportional to confidence, rounded to $1, min $5 / max $30. "EV" uses my model probabilities: (true probability × payout) − stake.</p>
+
+  <h3>Reasoning per bet</h3>
+  <div class="grid2">
+    <div class="panel"><h4>1 · Under 2.5 @ 1.88 — the core edge</h4>
+      <p>1xBet implies 53.2%; the model says 62.3% — a +9.1-point edge, the largest on the board. Morocco's elite-opponent games went 1–1 and 1–1; France's knockout games have been 3–0 v a third-place qualifier and a heat-strangled 1–0; the last competitive France–Morocco was 2–0. The market line of ~2.5 goals looks anchored to France's group-stage goal glut against open teams.</p></div>
+    <div class="panel"><h4>2 · Asian under 3.0 @ 1.42 — the safety-first version</h4>
+      <p>Same thesis, one goal of insurance: at exactly 3 goals (e.g. 2–1 late consolation) the stake comes back instead of losing. Win 62%, refund 20%, lose only on 4+ goals (18%). This is the "wider line at acceptable odds" the safety rule demands, so it carries the second-largest stake.</p></div>
+    <div class="panel"><h4>3 · 1X + Under 2.5 @ 2.11 — priced-in insult, small edge on top</h4>
+      <p>France-or-draw is 86% likely on its own; combined with under 2.5 the model gives 53.6% v 47.4% implied (+6.3). It only differs from bet 1 by also losing to a 0–1/0–2 Morocco win (8.6%) — and pays 2.11 instead of 1.88 for that. Smallest stake of the four, matching its lowest confidence.</p></div>
+    <div class="panel"><h4>4 · BTTS + Over 3.5 "No" @ 1.22 — the wide safety net</h4>
+      <p>Loses only if both teams score <em>and</em> the game has 4+ goals (3–1, 2–2, 4–1…) — a 12% scenario in the model v 18% implied (+5.7). Crucially it still wins if France run up 3–0 or 4–0, which is the one France-blowout branch the under bets can't cover, so it de-correlates the portfolio slightly.</p></div>
+  </div>
+
+  <h3>Candidates evaluated and rejected</h3>
+  <div class="tblwrap"><table>
+    <thead><tr><th>Market</th><th class="num">Odds</th><th class="num">Implied</th><th class="num">My est.</th><th class="num">Edge</th><th>Verdict</th></tr></thead>
+    <tbody>
+      <tr><td>1X + Under 1.5 (0–0 or 1–0 only)</td><td class="num">4.30</td><td class="num">23.3%</td><td class="num">28.8%</td><td class="num">+5.5</td><td><span class="pill rej">Rejected</span> safety-first: one goal kills it; bet 3 is the wide version</td></tr>
+      <tr><td>Under 3.5</td><td class="num">1.27</td><td class="num">78.7%</td><td class="num">81.9%</td><td class="num">+3.2</td><td><span class="pill rej">Rejected</span> edge &lt; 5-pt minimum</td></tr>
+      <tr><td>France −1 (Asian)</td><td class="num">1.96</td><td class="num">51.0%</td><td class="num">37% win / 26% push</td><td class="num">≈0</td><td><span class="pill rej">Rejected</span> fair-priced, no edge</td></tr>
+      <tr><td>France DNB (handicap 0)</td><td class="num">1.136</td><td class="num">88.0%</td><td class="num">80.9%*</td><td class="num">−7.1</td><td><span class="pill rej">Rejected</span> negative EV — 1xBet's worst price on the board</td></tr>
+      <tr><td>Morocco +1.5</td><td class="num">1.504</td><td class="num">66.5%</td><td class="num">62.8%</td><td class="num">−3.7</td><td><span class="pill rej">Rejected</span> negative edge</td></tr>
+      <tr><td>W1 + Over 1.5</td><td class="num">1.95</td><td class="num">51.3%</td><td class="num">48.9%</td><td class="num">−2.4</td><td><span class="pill rej">Rejected</span> negative edge</td></tr>
+      <tr><td>Correct score 2–0</td><td class="num">7.00</td><td class="num">14.3%</td><td class="num">14.2%</td><td class="num">≈0</td><td><span class="pill rej">Rejected</span> no edge + safety-first ban on exact scores</td></tr>
+    </tbody>
+  </table></div>
+  <p class="sub" style="margin-top:8px">*win probability conditional on no draw. Implied probabilities are 1/odds, uncorrected for margin — which makes the quoted edges conservative.</p>
+</section>
+
+<!-- ============ 8. PAYOFF MATRIX ============ -->
+<section>
+  <div class="eyebrow disp">Section 7 · Payoff matrix</div>
+  <h2 class="disp">Net P&amp;L of the $50 portfolio at every scoreline</h2>
+  <p class="lede">All four bets settled together. The predicted 2–0 cell is outlined. Reading it plainly: any game with ≤2 total goals is a win (bigger if France don't lose), exactly 3 goals costs $17.70, and a 4+ goal game with both teams scoring is a wipe-out — that is the accepted, correlated risk.</p>
+  <div class="tblwrap">
+    <table class="matrix">
+      <thead>
+        <tr><th class="rowhead" style="text-align:left">FRA ↓ · MAR →</th><th>0</th><th>1</th><th>2</th><th>3</th><th>4</th><th>5</th><th>6</th></tr>
+      </thead>
+      <tbody>
+        <tr><td class="rowhead">France 0</td>
+          <td><span class="cell c-mg">+$29.73</span></td><td><span class="cell c-mg">+$10.74</span></td><td><span class="cell c-mg">+$10.74</span></td><td><span class="cell c-lr">−$17.70</span></td><td><span class="cell c-mr">−$31.70</span></td><td><span class="cell c-mr">−$31.70</span></td><td><span class="cell c-mr">−$31.70</span></td></tr>
+        <tr><td class="rowhead">France 1</td>
+          <td><span class="cell c-mg">+$29.73</span></td><td><span class="cell c-mg">+$29.73</span></td><td><span class="cell c-lr">−$17.70</span></td><td><span class="cell c-dr">−$50.00</span></td><td><span class="cell c-dr">−$50.00</span></td><td><span class="cell c-dr">−$50.00</span></td><td><span class="cell c-dr">−$50.00</span></td></tr>
+        <tr><td class="rowhead">France 2</td>
+          <td><span class="cell c-mg pred">+$29.73</span></td><td><span class="cell c-lr">−$17.70</span></td><td><span class="cell c-dr">−$50.00</span></td><td><span class="cell c-dr">−$50.00</span></td><td><span class="cell c-dr">−$50.00</span></td><td><span class="cell c-dr">−$50.00</span></td><td><span class="cell c-dr">−$50.00</span></td></tr>
+        <tr><td class="rowhead">France 3</td>
+          <td><span class="cell c-lr">−$17.70</span></td><td><span class="cell c-dr">−$50.00</span></td><td><span class="cell c-dr">−$50.00</span></td><td><span class="cell c-dr">−$50.00</span></td><td><span class="cell c-dr">−$50.00</span></td><td><span class="cell c-dr">−$50.00</span></td><td><span class="cell c-dr">−$50.00</span></td></tr>
+        <tr><td class="rowhead">France 4</td>
+          <td><span class="cell c-mr">−$31.70</span></td><td><span class="cell c-dr">−$50.00</span></td><td><span class="cell c-dr">−$50.00</span></td><td><span class="cell c-dr">−$50.00</span></td><td><span class="cell c-dr">−$50.00</span></td><td><span class="cell c-dr">−$50.00</span></td><td><span class="cell c-dr">−$50.00</span></td></tr>
+        <tr><td class="rowhead">France 5</td>
+          <td><span class="cell c-mr">−$31.70</span></td><td><span class="cell c-dr">−$50.00</span></td><td><span class="cell c-dr">−$50.00</span></td><td><span class="cell c-dr">−$50.00</span></td><td><span class="cell c-dr">−$50.00</span></td><td><span class="cell c-dr">−$50.00</span></td><td><span class="cell c-dr">−$50.00</span></td></tr>
+        <tr><td class="rowhead">France 6</td>
+          <td><span class="cell c-mr">−$31.70</span></td><td><span class="cell c-dr">−$50.00</span></td><td><span class="cell c-dr">−$50.00</span></td><td><span class="cell c-dr">−$50.00</span></td><td><span class="cell c-dr">−$50.00</span></td><td><span class="cell c-dr">−$50.00</span></td><td><span class="cell c-dr">−$50.00</span></td></tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="legend">
+    <span><i style="background:var(--dg)"></i>Profit &gt; $30</span>
+    <span><i style="background:var(--mg)"></i>Profit $10–30</span>
+    <span><i style="background:var(--lg)"></i>Profit $0–10</span>
+    <span><i style="background:var(--lr)"></i>Loss $0–20</span>
+    <span><i style="background:var(--mr)"></i>Loss $20–40</span>
+    <span><i style="background:var(--dr)"></i>Loss ≥ $40</span>
+    <span>▢ outline = predicted score</span>
+  </div>
+  <div class="grid2" style="margin-top:18px">
+    <div class="panel">
+      <h4>Portfolio outcome probabilities (model)</h4>
+      <div class="tblwrap" style="border:none"><table style="font-size:14px">
+        <tbody>
+          <tr><td>+$29.73 — France don't lose, ≤2 goals (0–0, 1–0, 2–0, 1–1)</td><td class="num">53.6%</td></tr>
+          <tr><td>+$10.74 — Morocco win under 2.5 (0–1, 0–2)</td><td class="num">8.6%</td></tr>
+          <tr><td>−$17.70 — exactly 3 goals</td><td class="num">19.7%</td></tr>
+          <tr><td>−$31.70 — 4+ goal shut-out (4–0, 0–4…)</td><td class="num">4.3%</td></tr>
+          <tr><td>−$50.00 — 4+ goals, both score</td><td class="num">13.8%</td></tr>
+        </tbody>
+      </table></div>
+    </div>
+    <div class="panel">
+      <h4>Bottom line</h4>
+      <p><b>62% chance the portfolio profits</b>; expected value ≈ <b>+$5.40 on $50</b> (+10.8%) under the model — and roughly break-even if the market's 2.5-goal expectation is right and mine is wrong. Maximum win +$29.73; maximum loss the full $50.</p>
+      <p class="sub">Every EV figure is conditional on my probabilities. A sportsbook's margin means the market believes each of these bets is slightly negative; the wager only makes sense if you share the low-scoring read argued above.</p>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <p><b>Responsible betting:</b> this is analytical opinion, not a guarantee — a single early goal can sink the entire correlated position. Only stake money you can afford to lose, and only if you're of legal betting age in your jurisdiction. All prices from the supplied 1xBet screenshots (~29h pre-match) and may move before kick-off; bets settle on 90 minutes.</p>
+  <p style="margin-top:14px"><b>Sources</b></p>
+  <ul class="src">
+    <li><a href="https://www.aljazeera.com/sports/2026/7/8/france-vs-morocco-key-talking-points-mbappe-world-cup-quarterfinal-what-we-know">Al Jazeera — France v Morocco: what we know</a></li>
+    <li><a href="https://www.cbssports.com/soccer/news/france-morocco-odds-prediction-line-time-2026-world-cup-quarterfinals-picks/">CBS Sports — odds &amp; prediction</a></li>
+    <li><a href="https://www.espn.com/soccer/story/_/id/49271796/kylian-mbappe-penalty-leads-france-paraguay-world-cup">ESPN — Mbappé penalty beats Paraguay</a></li>
+    <li><a href="https://www.espn.com/soccer/match/_/gameId/760502/morocco-canada">ESPN — Canada 0–3 Morocco</a></li>
+    <li><a href="https://www.fifa.com/en/tournaments/mens/worldcup/canadamexicousa2026/articles/france-iraq-match-report-highlights">FIFA — France 3–0 Iraq report</a></li>
+    <li><a href="https://en.wikipedia.org/wiki/2026_FIFA_World_Cup_Group_C">Wikipedia — 2026 World Cup Group C</a></li>
+    <li><a href="https://en.wikipedia.org/wiki/2026_FIFA_World_Cup_Group_I">Wikipedia — 2026 World Cup Group I</a></li>
+    <li><a href="https://www.sportsmole.co.uk/football/morocco/world-cup-2026/predicted-lineups/saibari-sidelined-riad-returns-predicted-morocco-world-cup-lineup-vs-france_600834.html">Sports Mole — Morocco predicted XI, Saibari doubt</a></li>
+    <li><a href="https://www.rotowire.com/soccer/article/france-vs-morocco-preview-predicted-lineups-team-news-tactical-analysis-2026-world-cup-quarterfinal-121621">RotoWire — team news &amp; tactics (Tchouaméni)</a></li>
+    <li><a href="https://www.si.com/soccer/france-vs-morocco-head-to-head-record">Sports Illustrated — complete head-to-head</a></li>
+    <li><a href="https://www.moroccoworldnews.com/2026/07/327366/deschamps-morocco-are-a-very-strong-team-their-quarter-final-run-is-no-coincidence/">Morocco World News — Deschamps press conference</a></li>
+    <li><a href="https://theanalyst.com/articles/france-vs-morocco-prediction-world-cup-2026-match-preview">Opta Analyst — match preview (Hakimi stats)</a></li>
+    <li><a href="https://sports.yahoo.com/soccer/live/world-cup-2026-bracket-schedule-scores-results-live-updates-round-of-16-130000983.html">Yahoo — bracket &amp; semifinal path</a></li>
+    <li><a href="https://www.foxsports.com/stories/soccer/world-cup-bracket-live-quarterfinals-update-standings">FOX Sports — quarterfinal bracket</a></li>
+  </ul>
+</footer>
+
+</div>
