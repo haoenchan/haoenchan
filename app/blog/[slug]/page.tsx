@@ -32,7 +32,7 @@ export default async function ArticlePage({ params }: PageProps) {
   if (!post) notFound()
 
   return (
-    <div className="page page--wide">
+    <div className="page md">
       <SiteHeader />
 
       <main className="main">
