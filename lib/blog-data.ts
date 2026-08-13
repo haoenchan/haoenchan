@@ -672,7 +672,7 @@ $$\\prod_{n=2}^{\\infty} \\left(\\frac{n^3 - 1}{n^3 + 1}\\right)$$
   {
     slug: "simple-harmonic-damped-oscillators",
     title: "Simple Harmonic and Damped Oscillators",
-    excerpt: "Why is ω = √(k/m)? Starting from F = −kx we solve the equation of motion using a complex exponential ansatz, derive the general SHM solution, then extend the analysis to overdamped, critically damped, and underdamped systems.",
+    excerpt: "A review of SHM with 2nd order ODEs.",
     date: "2026-05-20",
     readTime: "12 min read",
     category: "Physics",

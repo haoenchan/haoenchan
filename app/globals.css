@@ -450,6 +450,13 @@ body { overflow-x: hidden; -webkit-font-smoothing: antialiased; -moz-osx-font-sm
   line-height: 1.7;
   color: oklch(0.93 0.005 200 / 0.80);
 }
+.hero__note {
+  margin-top: 1rem;
+  max-width: 32rem;
+  font-size: 0.9375rem;
+  line-height: 1.65;
+  color: oklch(0.93 0.005 200 / 0.55);
+}
 .drop-cap {
   float: left;
   font-family: var(--font-serif);
@@ -1152,6 +1159,7 @@ body { overflow-x: hidden; -webkit-font-smoothing: antialiased; -moz-osx-font-sm
 .hero__lead--centered .chip { align-self: center; }
 .hero__lead--centered .hero__title { text-align: center; }
 .hero__lead--centered .hero__lead-text { margin-inline: auto; max-width: 36rem; }
+.hero__lead--centered .hero__note { margin-inline: auto; max-width: 36rem; }
 .hero__lead--centered .hero__cta-row { justify-content: center; }
 .hero__lead--centered .drop-cap {
   float: none; display: inline-block; font-size: 1em; line-height: 1; margin: 0;

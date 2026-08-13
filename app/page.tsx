@@ -78,6 +78,11 @@ export default function HomePage() {
                 {"Hi! I'm Haoen and I am interested in physics and a bit of math. Here, I will post some of my own articles including my own solutions to some problems and also some handouts."}
               </p>
 
+              {/* Note about how the site is built */}
+              <p className="hero__note animate-fade-in-up" style={{ animationDelay: "375ms" }}>
+                {"If ur wondering, this webpage is hosted by a web builder ai! The articles are entirely written by me, uploaded by claude onto this page here!"}
+              </p>
+
               {/* CTA */}
               <div className="hero__cta-row animate-fade-in-up" style={{ animationDelay: "450ms" }}>
                 <MagneticHover strength={0.18} radius={140}>
