@@ -80,7 +80,7 @@ export default function HomePage() {
 
               {/* Note about how the site is built */}
               <p className="hero__note animate-fade-in-up" style={{ animationDelay: "375ms" }}>
-                {"If you're wondering, this webpage is hosted by an AI web builder! The articles are entirely written by me and uploaded onto this page by Claude!"}
+                {"If you're wondering, this webpage is hosted by an AI web builder, as I have no clue on how to code (yet). The articles are entirely written by me and uploaded onto this page by Claude!"}
               </p>
 
               {/* CTA */}
